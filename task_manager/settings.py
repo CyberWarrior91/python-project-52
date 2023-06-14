@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ['webserver', 'localhost']
+ALLOWED_HOSTS = ['webserver', 'localhost', 'python-project-52-production-882e.up.railway.app']
 
 
 # Application definition
