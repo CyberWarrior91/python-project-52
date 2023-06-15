@@ -1,15 +1,21 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
-<h1 class="my-4"></h1>
-<div class="card">
+<h1 class="my-5"></h1>
+<div class="container-fluid text-center max-width mt-5 px-5 pt-3" >
   <div class="card-body p-5 bg-light">
-    <div class="display-4">Привет от Хекслета!</div>
-    <p class="lead">Практические курсы по программированию</p>
+    <div class="display-4">{% trans "Hello from Hexlet!" %}</div>
+    <p class="lead">{% trans "Practical courses of programming" %}</p>
     <hr>
-    <a class="btn btn-success btn-lg" href="https://ru.hexlet.io">Узнать больше</a>
+    <a class="btn btn-success btn-lg" href="https://ru.hexlet.io">{% trans "Learn more" %}</a>
   </div>
 </div>
 
+<style>
+  .max-width {
+    max-width: 700px;
+  }
+</style>
     
 {% endblock %}
