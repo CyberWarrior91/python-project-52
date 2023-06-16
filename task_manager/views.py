@@ -23,6 +23,10 @@ class HomePageView(TemplateView):
         return render(request, HomePageView.template_name)
 
 def users(request):
-    output = _('Users')
-    return render(request, 'users.html', context={'output': output})
+    return render(request, 'users.html')
 
+def users_create(request):
+    return render(request, 'registration.html')
+
+def login(request):
+    return render(request, 'login.html')

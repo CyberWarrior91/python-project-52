@@ -2,5 +2,35 @@
 {% load i18n %}
 
 {% block content %}
-<h2>{% trans output %}</h2>
+<div class="container text-center">
+  <h1 class="my-4">{% trans "Users" %}</h1>
+
+  <table class="table table-bordered ">
+    <thead class="thead-light">
+        <tr>
+            <th>{% trans "ID" %}</th>
+            <th>{% trans "Username" %}</th>
+            <th>{% trans "Full name" %}</th>
+            <th>{% trans "Creation date" %}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if users %}
+            {% for user in users %}
+            <tr>{{ user.id }}</tr>
+            <tr>{{ user.nickname }}</tr>
+            <tr>{{ user.fullname }}</tr>
+            <tr>{{ user.created_at }}</tr>
+            <tr>
+                <a href="">{% trans "Modify" %}</a>
+                <br>
+                <a href="">{% trans "Delete" %}</a>
+            </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+        
+  </table>
+</div>
 {% endblock %}
