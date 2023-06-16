@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from task_manager import views
+from django.conf.urls.i18n import i18n_patterns
 
-urlpatterns = [
+
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('', views.HomePageView.as_view(), name='main'),
     path('users/', views.users, name='users'),
-]
+    path('users/create/', views.users_create, name='users_create'),
+    path('login/', views.login, name='login'),
+)
