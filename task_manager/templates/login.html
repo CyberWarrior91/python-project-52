@@ -1,7 +1,20 @@
 {% extends "base.html" %}
 {% load i18n %}
-
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="close">×</button>
+  Пользователь успешно зарегистрирован
+</div>
 {% block content %}
+{% if messages %}
+
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">×</button>
+          {{ message }}
+    </div>
+    {% endfor %}
+  
+{% endif %}
 <div class="container max-width">
     <h1 class="my-4 text-center">{% trans "Login" %}</h1>
     <form method="post" action="/">

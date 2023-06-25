@@ -5,7 +5,7 @@
 <div class="container text-center">
   <h1 class="my-4">{% trans "Users" %}</h1>
 
-  <table class="table table-bordered ">
+  <table class="table table-bordered table-hover">
     <thead class="thead-light">
         <tr>
             <th>{% trans "ID" %}</th>
@@ -15,21 +15,24 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    
         {% if users %}
+        <tbody>
             {% for user in users %}
-            <tr>{{ user.id }}</tr>
-            <tr>{{ user.nickname }}</tr>
-            <tr>{{ user.fullname }}</tr>
-            <tr>{{ user.created_at }}</tr>
             <tr>
-                <a href="">{% trans "Modify" %}</a>
-                <br>
-                <a href="">{% trans "Delete" %}</a>
+                <td>{{ user.id }}</td>
+                <td>{{ user.nickname }}</td>
+                <td>{{ user.name }} {{ user.surname }}</td>
+                <td>{{ user.created_at }}</td>
+                <td>
+                    <a href="">{% trans "Modify" %}</a>
+                    <br>
+                    <a href="">{% trans "Delete" %}</a>
+                </td>
             </tr>
             {% endfor %}
         {% endif %}
-    </tbody>
+        </tbody>
         
   </table>
 </div>

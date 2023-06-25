@@ -1,6 +1,30 @@
+MANAGE := poetry run python manage.py
+
+.PHONY: dev
 dev:
-	poetry run python manage.py runserver
+	@$(MANAGE) runserver
+
+.PHONY: translate
 translate:
-	poetry run python manage.py makemessages -l ru_RU
+	@$(MANAGE) makemessages -l ru_RU
+
+.PHONY: compile
 compile:
-	poetry run python manage.py compilemessages
+	@$(MANAGE) compilemessages
+
+.PHONY: migrations
+migrations:
+	@$(MANAGE) makemigrations
+
+.PHONY: migrate
+migrate:
+	@$(MANAGE) migrate
+
+.PHONY: shell
+shell:
+	@$(MANAGE) shell_plus --ipython
+
+.PHONY: lint
+lint:
+	@poetry run flake8 task_manager
+
