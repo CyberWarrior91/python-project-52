@@ -22,8 +22,6 @@ class HomePageView(TemplateView):
         logger.error('This is an error message')
         return render(request, HomePageView.template_name)
 
-def users(request):
-    return render(request, 'users.html')
 
 def users_create(request):
     return render(request, 'registration.html')
