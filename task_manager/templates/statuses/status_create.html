@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container text-center">
+    <h1 class="my-4">{% trans 'Create status' %}</h1>
+    <form method="post" action="/">
+        {{ form|crispy }}
+        <label>{% trans 'Name' %}</label>
+        <input type="text" placeholder="{% trans 'Name' %}" name="status.name">
+        <div class="form-group text-center">
+            <input class="btn btn-primary" type="submit" value="{% trans 'Create' %}">
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -8,6 +8,13 @@
     <form method="post">
     {% csrf_token %}
     {{ form|crispy }}
+    {% if form.password_confirm.errors %}
+      {% for error in form.password_confirm.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error|escape }}
+        </div>
+      {% endfor %}
+    {% endif %}
     <div class="form-group text-center">
         <input class="btn btn-primary" type="submit" value="{% trans 'Register' %}">
     </div>

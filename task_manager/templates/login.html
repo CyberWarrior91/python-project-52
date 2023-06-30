@@ -1,33 +1,36 @@
 {% extends "base.html" %}
 {% load i18n %}
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="close">×</button>
-  Пользователь успешно зарегистрирован
-</div>
-{% block content %}
-{% if messages %}
+{% load crispy_forms_tags %}
 
-    {% for message in messages %}
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="close">×</button>
-          {{ message }}
-    </div>
-    {% endfor %}
-  
-{% endif %}
+
+
+{% block content %}
+
+
+
 <div class="container max-width">
     <h1 class="my-4 text-center">{% trans "Login" %}</h1>
-    <form method="post" action="/">
-        <div class="form-group"><label for="id_username">{% trans "Username" %}</label><input type="text" name="username" autocomplete="username" maxlength="150" class="form-control" placeholder="{% trans 'Username' %}" title="" required id="id_username"></div>
-        <div class="form-group"><label for="id_password">{% trans "Password" %}</label><input type="text" name="password" autocomplete="current-password" maxlength="150" class="form-control" placeholder="{% trans 'Password' %}" title="" required id="id_password"></div>
-        <div class="form-group text-center">
-            <input class="btn btn-primary" type="submit" value="{% trans 'Sign-in' %}">
-          </div>
+    {% if form.errors %}
+    <div id='form-errors'>{{ form_errors }}</div>
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="next" value="{% url 'main' %}">
+      {{ form|crispy }}
+      <div class="form-group text-center">
+        <input class="btn btn-primary" type="submit" value="{% trans 'Sign-in' %}">
+        
+      </div>
     </form>
 </div>
     <style>
         .max-width {
           max-width: 700px;
         }
+        .asteriskField {
+            display: none;
+        }
       </style>
 {% endblock %}
+
+
