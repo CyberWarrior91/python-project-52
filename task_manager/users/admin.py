@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import User
+from .models import CustomUser
 # Register your models here.
 from django.contrib.admin import DateFieldListFilter
 
 
 # Register your models here.
-@admin.register(User)
+@admin.register(CustomUser)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'created_at')
+    list_display = ('username', 'date_joined')
     search_fields = ['username', 'full_name']
-    list_filter = (('created_at', DateFieldListFilter),)
+    list_filter = (('date_joined', DateFieldListFilter),)

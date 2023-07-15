@@ -3,10 +3,17 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 import logging
 from django.utils.translation import gettext as _
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from task_manager.users.forms import NewUserForm
 
+from django.contrib.auth import login as auth_login
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.contrib.auth.forms import AuthenticationForm
+from django import forms
 
 logger = logging.getLogger(__name__)
 
@@ -28,15 +35,29 @@ class HomePageView(TemplateView):
 
 class UserLoginView(LoginView):
     template_name = 'login.html'
-    redirect_authenticated_user = True
+    success_url = '/main/'
+    
 
-    def get_success_url(self) -> str:
-        return reverse_lazy('main')
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        if not messages.get_messages(self.request):
+            messages.success(self.request, _('You have been logged in'))
+        return response
+
+    
 
     def form_invalid(self, form):
-        messages.error(self.request,'Invalid username or password')
         return self.render_to_response(self.get_context_data(form=form))
 
+
+
+
+class UserLogoutView(LogoutView):
+    def dispatch(self, request, *args, **kwargs):
+        # Call the parent dispatch method
+        response = super().dispatch(request, *args, **kwargs)
+        messages.success(request, _('You have been logged out'))
+        return response
 
 def users_create(request):
     return render(request, 'registration.html')

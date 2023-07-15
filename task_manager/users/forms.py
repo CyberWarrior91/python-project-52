@@ -1,5 +1,7 @@
 from django import forms
-from .models import User
+from django.contrib.auth.models import User
+
+from .models import CustomUser
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, MultiField, Div, Field
 from django.utils.translation import gettext_lazy as _
@@ -17,7 +19,7 @@ class NewUserForm(UserCreationForm):
         self.fields['last_name'].required = True
 
     class Meta:
-        model = get_user_model()
+        model = CustomUser
         fields = ("first_name", "last_name", "username",
                   "password1", "password2")
 
@@ -26,9 +28,12 @@ class NewUserForm(UserCreationForm):
         Saves the form in db if valid
         :return: new user information
         """
-        user = super(NewUserForm, self).save(commit=True)
-        user.username = self.cleaned_data['username']
+        user = super().save(commit=False)
+        user.first_name = self.cleaned_data.get('first_name')
+        user.last_name = self.cleaned_data.get('last_name')
+        user.username = self.cleaned_data.get('username')
+        user.set_password(self.cleaned_data.get('password1'))
         if commit:
             user.save()
         return user
-
+        

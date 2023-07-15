@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-23 15:30+0000\n"
+"POT-Creation-Date: 2023-07-07 16:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,38 +30,44 @@ msgstr "Менеджер задач"
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/base.html:35 task_manager/templates/login.html:19
+#: task_manager/templates/base.html:33
+#: task_manager/templates/statuses/index.html:6
+msgid "Statuses"
+msgstr "Статусы"
+
+#: task_manager/templates/base.html:36
+msgid "Tags"
+msgstr "Метки"
+
+#: task_manager/templates/base.html:39
+msgid "Tasks"
+msgstr "Задачи"
+
+#: task_manager/templates/base.html:42
+msgid "Logout"
+msgstr "Выход"
+
+#: task_manager/templates/base.html:48 task_manager/templates/login.html:21
 msgid "Login"
 msgstr "Вход"
 
-#: task_manager/templates/base.html:38
+#: task_manager/templates/base.html:51
 msgid "Sign-up"
 msgstr "Регистрация"
 
-#: task_manager/templates/index.html:8
+#: task_manager/templates/index.html:22
 msgid "Hello from Hexlet!"
 msgstr "Привет от Хекслета!"
 
-#: task_manager/templates/index.html:9
+#: task_manager/templates/index.html:23
 msgid "Practical courses of programming"
 msgstr "Практические курсы по программированию"
 
-#: task_manager/templates/index.html:11
+#: task_manager/templates/index.html:25
 msgid "Learn more"
 msgstr "Узнать больше"
 
-#: task_manager/templates/login.html:21
-#: task_manager/templates/registration.html:11
-#: task_manager/templates/users/index.html:12 task_manager/users/models.py:11
-msgid "Username"
-msgstr "Имя пользователя"
-
-#: task_manager/templates/login.html:22
-#: task_manager/templates/registration.html:14 task_manager/users/forms.py:10
-msgid "Password"
-msgstr "Пароль"
-
-#: task_manager/templates/login.html:24
+#: task_manager/templates/login.html:30
 msgid "Sign-in"
 msgstr "Войти"
 
@@ -70,22 +76,36 @@ msgstr "Войти"
 msgid "Registration"
 msgstr "Регистрация"
 
-#: task_manager/templates/registration.html:9 task_manager/users/models.py:12
+#: task_manager/templates/registration.html:9
+#: task_manager/templates/statuses/index.html:12
+#: task_manager/templates/statuses/status_create.html:9
+#: task_manager/templates/statuses/status_create.html:10
+#: task_manager/users/forms.py:36 task_manager/users/models.py:14
 msgid "Name"
 msgstr "Имя"
 
-#: task_manager/templates/registration.html:10 task_manager/users/models.py:13
+#: task_manager/templates/registration.html:10 task_manager/users/forms.py:37
+#: task_manager/users/models.py:15
 msgid "Surname"
 msgstr "Фамилия"
 
 #: task_manager/templates/registration.html:11
-#: task_manager/templates/registration.html:12 task_manager/users/forms.py:25
+#: task_manager/templates/users/index.html:12 task_manager/users/models.py:13
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: task_manager/templates/registration.html:11
+#: task_manager/templates/registration.html:12
 msgid ""
 "Mandatory field. No more than 150 symbols. Only letters, digits and symbols "
 "@/./+/-/_."
 msgstr ""
 "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./"
 "+/-/_."
+
+#: task_manager/templates/registration.html:14 task_manager/users/models.py:16
+msgid "Password"
+msgstr "Пароль"
 
 #: task_manager/templates/registration.html:14
 #: task_manager/templates/registration.html:15
@@ -97,57 +117,70 @@ msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
 #: task_manager/templates/registration.html:17
-#: task_manager/templates/registration.html:18 task_manager/users/forms.py:16
+#: task_manager/templates/registration.html:18
 msgid "For confirmation please enter your password again."
 msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
 
 #: task_manager/templates/registration.html:21
-#: task_manager/templates/users/user_create.html:12
+#: task_manager/templates/users/user_create.html:19
 msgid "Register"
 msgstr "Зарегистрировать"
 
+#: task_manager/templates/statuses/index.html:7
+#: task_manager/templates/statuses/status_create.html:6
+#, fuzzy
+#| msgid "Creation date"
+msgid "Create status"
+msgstr "Дата создания"
+
+#: task_manager/templates/statuses/index.html:11
 #: task_manager/templates/users/index.html:11
 msgid "ID"
 msgstr "ID"
+
+#: task_manager/templates/statuses/index.html:13
+#: task_manager/templates/users/index.html:14
+msgid "Creation date"
+msgstr "Дата создания"
+
+#: task_manager/templates/statuses/index.html:26
+#: task_manager/templates/users/index.html:28
+msgid "Modify"
+msgstr "Изменить"
+
+#: task_manager/templates/statuses/index.html:28
+#: task_manager/templates/users/index.html:30
+msgid "Delete"
+msgstr "Удалить"
+
+#: task_manager/templates/statuses/status_create.html:12
+#, fuzzy
+#| msgid "Creation date"
+msgid "Create"
+msgstr "Дата создания"
 
 #: task_manager/templates/users/index.html:13
 msgid "Full name"
 msgstr "Полное имя"
 
-#: task_manager/templates/users/index.html:14
-msgid "Creation date"
-msgstr "Дата создания"
-
-#: task_manager/templates/users/index.html:28
-msgid "Modify"
-msgstr "Изменить"
-
-#: task_manager/templates/users/index.html:30
-msgid "Delete"
-msgstr "Удалить"
-
-#: task_manager/users/forms.py:11
-msgid "<ul><li>Your password should contain at least 3 symbols.</li></ul>"
-msgstr "<ul><li>Ваш пароль должен содержать как минимум 3 символа.</li></ul>"
-
-#: task_manager/users/forms.py:14
-msgid "Password confirm"
-msgstr "Подтверждение пароля"
-
-#: task_manager/users/forms.py:18 task_manager/users/forms.py:29
-#: task_manager/users/forms.py:50
-msgid "Password and confirm password do not match."
-msgstr "Введенные пароли не совпадают."
-
-#: task_manager/users/views.py:25
+#: task_manager/users/views.py:26
 msgid "The user registered successfully"
 msgstr "Пользователь успешно зарегистрирован"
 
-#~ msgid "Statuses"
-#~ msgstr "Статусы"
+#: task_manager/views.py:36
+msgid "You have been logged in"
+msgstr "Вы залогинены"
 
-#~ msgid "Tags"
-#~ msgstr "Метки"
+#: task_manager/views.py:47
+msgid "You have been logged out"
+msgstr "Вы разлогинены"
 
-#~ msgid "Tasks"
-#~ msgstr "Задачи"
+#~ msgid "<ul><li>Your password should contain at least 3 symbols.</li></ul>"
+#~ msgstr ""
+#~ "<ul><li>Ваш пароль должен содержать как минимум 3 символа.</li></ul>"
+
+#~ msgid "Password confirm"
+#~ msgstr "Подтверждение пароля"
+
+#~ msgid "Password and confirm password do not match."
+#~ msgstr "Введенные пароли не совпадают."
