@@ -4010,3 +4010,1123 @@ Traceback (most recent call last):
     return super().execute(query, params)
 django.db.utils.OperationalError: no such table: users_user
 "GET /ru/users/ HTTP/1.1" 500 201280
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/users/views.py", line 27, in get
+    return render(request, self.template_name, {'form': self.form_class})
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 914, in _resolve_lookup
+    current = current()
+  File "/home/vladislav94/python-project-52/task_manager/users/forms.py", line 15, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 113, in __init__
+    if self._meta.model.USERNAME_FIELD in self.fields:
+AttributeError: type object 'User' has no attribute 'USERNAME_FIELD'
+"GET /ru/users/create/ HTTP/1.1" 500 177587
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 180, in get
+    return super().get(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 74, in get_context_data
+    kwargs["form"] = self.get_form()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 39, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 113, in __init__
+    if self._meta.model.USERNAME_FIELD in self.fields:
+AttributeError: type object 'User' has no attribute 'USERNAME_FIELD'
+"GET /ru/users/create/ HTTP/1.1" 500 88873
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 180, in get
+    return super().get(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 74, in get_context_data
+    kwargs["form"] = self.get_form()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 39, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 113, in __init__
+    if self._meta.model.USERNAME_FIELD in self.fields:
+AttributeError: type object 'User' has no attribute 'USERNAME_FIELD'
+"GET /ru/users/create/ HTTP/1.1" 500 88873
+Internal Server Error: /ru/logout/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view task_manager.views.view didn't return an HttpResponse object. It returned None instead.
+"GET /ru/logout/ HTTP/1.1" 500 62747
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/users/views.py", line 33, in get
+    form = NewUserForm2() # Создаем экземпляр нашей формы
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 113, in __init__
+    if self._meta.model.USERNAME_FIELD in self.fields:
+AttributeError: type object 'User' has no attribute 'USERNAME_FIELD'
+"GET /ru/users/create/ HTTP/1.1" 500 76114
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/users/views.py", line 34, in get
+    return render(request, 'users/user_create.html', {'form': form})
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 1064, in render
+    output = self.filter_expression.resolve(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 715, in resolve
+    obj = self.var.resolve(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 847, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/base.py", line 914, in _resolve_lookup
+    current = current()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 113, in __init__
+    if self._meta.model.USERNAME_FIELD in self.fields:
+AttributeError: type object 'User' has no attribute 'USERNAME_FIELD'
+"GET /ru/users/create/ HTTP/1.1" 500 173511
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/users/views.py", line 33, in get
+    form = NewUserForm2() # Создаем экземпляр нашей формы
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 113, in __init__
+    if self._meta.model.USERNAME_FIELD in self.fields:
+AttributeError: type object 'User' has no attribute 'USERNAME_FIELD'
+"GET /ru/users/create/ HTTP/1.1" 500 76251
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/users/views.py", line 39, in post
+    user.username = self.cleaned_data['username']
+AttributeError: 'UserCreateView' object has no attribute 'cleaned_data'
+"POST /ru/users/create/ HTTP/1.1" 500 72411
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/users/views.py", line 39, in post
+    user.save()
+NameError: name 'user' is not defined
+"POST /ru/users/create/ HTTP/1.1" 500 71862
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 332, in check_response
+    raise ValueError(
+ValueError: The view task_manager.users.views.view didn't return an HttpResponse object. It returned None instead.
+"POST /ru/users/create/ HTTP/1.1" 500 64050
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/users/views.py", line 35, in get
+    form = NewUserForm()
+  File "/home/vladislav94/python-project-52/task_manager/users/forms.py", line 15, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 113, in __init__
+    if self._meta.model.USERNAME_FIELD in self.fields:
+AttributeError: type object 'User' has no attribute 'USERNAME_FIELD'
+"GET /ru/users/create/ HTTP/1.1" 500 79917
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/users/views.py", line 35, in get
+    form = NewUserForm()
+  File "/home/vladislav94/python-project-52/task_manager/users/forms.py", line 15, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 113, in __init__
+    if self._meta.model.USERNAME_FIELD in self.fields:
+AttributeError: type object 'User' has no attribute 'USERNAME_FIELD'
+"GET /ru/users/create/ HTTP/1.1" 500 80217
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: users_user.password
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/users/views.py", line 47, in post
+    user.save()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: users_user.password
+"POST /ru/users/create/ HTTP/1.1" 500 153641
+Internal Server Error: /ru/users/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/users/views.py", line 44, in post
+    password=form.get('password'),
+AttributeError: 'NewUserForm' object has no attribute 'get'
+"POST /ru/users/create/ HTTP/1.1" 500 73467
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 113, in get_context_data
+    context = super().get_context_data(**kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 74, in get_context_data
+    kwargs["form"] = self.get_form()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 39, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "/home/vladislav94/python-project-52/task_manager/users/forms.py", line 15, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 112, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: BaseModelForm.__init__() got an unexpected keyword argument 'request'
+"GET /ru/login/ HTTP/1.1" 500 126564
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 113, in get_context_data
+    context = super().get_context_data(**kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 74, in get_context_data
+    kwargs["form"] = self.get_form()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 39, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "/home/vladislav94/python-project-52/task_manager/users/forms.py", line 15, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 112, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: BaseModelForm.__init__() got an unexpected keyword argument 'request'
+"GET /ru/login/ HTTP/1.1" 500 126701
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 113, in get_context_data
+    context = super().get_context_data(**kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 74, in get_context_data
+    kwargs["form"] = self.get_form()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 39, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "/home/vladislav94/python-project-52/task_manager/users/forms.py", line 15, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 112, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: BaseModelForm.__init__() got an unexpected keyword argument 'request'
+"GET /ru/login/ HTTP/1.1" 500 127038
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 113, in get_context_data
+    context = super().get_context_data(**kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 74, in get_context_data
+    kwargs["form"] = self.get_form()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 39, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "/home/vladislav94/python-project-52/task_manager/users/forms.py", line 15, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 112, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: BaseModelForm.__init__() got an unexpected keyword argument 'request'
+"GET /ru/login/ HTTP/1.1" 500 127038
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 151, in post
+    form = self.get_form()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 39, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "/home/vladislav94/python-project-52/task_manager/users/forms.py", line 15, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 112, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: BaseModelForm.__init__() got an unexpected keyword argument 'request'
+"POST /ru/login/ HTTP/1.1" 500 119829
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 113, in get_context_data
+    context = super().get_context_data(**kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 74, in get_context_data
+    kwargs["form"] = self.get_form()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 39, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "/home/vladislav94/python-project-52/task_manager/users/forms.py", line 15, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 112, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: BaseModelForm.__init__() got an unexpected keyword argument 'request'
+"GET /ru/login/ HTTP/1.1" 500 126433
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 144, in get
+    return self.render_to_response(self.get_context_data())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 113, in get_context_data
+    context = super().get_context_data(**kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 74, in get_context_data
+    kwargs["form"] = self.get_form()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 39, in get_form
+    return form_class(**self.get_form_kwargs())
+  File "/home/vladislav94/python-project-52/task_manager/users/forms.py", line 15, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/forms.py", line 112, in __init__
+    super().__init__(*args, **kwargs)
+TypeError: BaseModelForm.__init__() got an unexpected keyword argument 'request'
+"GET /ru/login/ HTTP/1.1" 500 126558
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 41, in form_valid
+    username=self.request.POST('username'),
+TypeError: 'QueryDict' object is not callable
+"POST /ru/login/ HTTP/1.1" 500 110433
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 40, in post
+    username=request.POST('username'),
+TypeError: 'QueryDict' object is not callable
+"POST /ru/login/ HTTP/1.1" 500 106197
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 41, in post
+    password=request.POST('password'),
+TypeError: 'QueryDict' object is not callable
+"POST /ru/login/ HTTP/1.1" 500 106197
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 39, in post
+    user = User.objects.get(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+task_manager.users.models.User.DoesNotExist: User matching query does not exist.
+"POST /ru/login/ HTTP/1.1" 500 115022
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 39, in post
+    user = User.objects.get(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+task_manager.users.models.User.DoesNotExist: User matching query does not exist.
+"POST /ru/login/ HTTP/1.1" 500 115022
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 39, in post
+    user = User.objects.get(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+task_manager.users.models.User.DoesNotExist: User matching query does not exist.
+"POST /ru/login/ HTTP/1.1" 500 115022
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 39, in post
+    user = User.objects.get(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+task_manager.users.models.User.DoesNotExist: User matching query does not exist.
+"POST /ru/login/ HTTP/1.1" 500 115025
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 39, in post
+    user = User.objects.get(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+task_manager.users.models.User.DoesNotExist: User matching query does not exist.
+"POST /ru/login/ HTTP/1.1" 500 115048
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 39, in post
+    user = User.objects.get(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+task_manager.users.models.User.DoesNotExist: User matching query does not exist.
+"POST /ru/login/ HTTP/1.1" 500 115045
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 39, in post
+    user = User.objects.get(
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+task_manager.users.models.User.DoesNotExist: User matching query does not exist.
+"POST /ru/login/ HTTP/1.1" 500 115066
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 40, in clean_username
+    User.objects.get(username=username)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+task_manager.users.models.User.DoesNotExist: User matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 152, in post
+    if form.is_valid():
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/forms/forms.py", line 201, in is_valid
+    return self.is_bound and not self.errors
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/forms/forms.py", line 196, in errors
+    self.full_clean()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/forms/forms.py", line 433, in full_clean
+    self._clean_fields()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/forms/forms.py", line 448, in _clean_fields
+    value = getattr(self, "clean_%s" % name)()
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 42, in clean_username
+    raise forms.ValidationError("Invalid username.")
+NameError: name 'forms' is not defined
+"POST /ru/login/ HTTP/1.1" 500 138935
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 62, in form_valid
+    response = super().form_valid(form)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 109, in form_valid
+    auth_login(self.request, form.get_user())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/__init__.py", line 138, in login
+    request.session[SESSION_KEY] = user._meta.pk.value_to_string(user)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/functional.py", line 268, in inner
+    return func(_wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute '_meta'
+"POST /ru/login/ HTTP/1.1" 500 123674
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 109, in form_valid
+    auth_login(self.request, form.get_user())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/__init__.py", line 138, in login
+    request.session[SESSION_KEY] = user._meta.pk.value_to_string(user)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/functional.py", line 268, in inner
+    return func(_wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute '_meta'
+"POST /ru/login/ HTTP/1.1" 500 119697
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 109, in form_valid
+    auth_login(self.request, form.get_user())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/__init__.py", line 138, in login
+    request.session[SESSION_KEY] = user._meta.pk.value_to_string(user)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/functional.py", line 268, in inner
+    return func(_wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute '_meta'
+"POST /ru/login/ HTTP/1.1" 500 119697
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/debug.py", line 92, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/decorators/cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 90, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/vladislav94/python-project-52/task_manager/views.py", line 62, in form_valid
+    response = super().form_valid(form)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/views.py", line 109, in form_valid
+    auth_login(self.request, form.get_user())
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/contrib/auth/__init__.py", line 138, in login
+    request.session[SESSION_KEY] = user._meta.pk.value_to_string(user)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/utils/functional.py", line 268, in inner
+    return func(_wrapped, *args)
+AttributeError: 'AnonymousUser' object has no attribute '_meta'
+"POST /ru/login/ HTTP/1.1" 500 123373
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/vladislav94/python-project-52/.venv/lib/python3.10/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: registration/login.html
+"GET /ru/login/ HTTP/1.1" 500 77689

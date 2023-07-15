@@ -28,8 +28,21 @@
           <li class="nav-item">
             <a class="nav-link" href="/users/">{% trans "Users" %}</a>
           </li>
-
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="/statuses/">{% trans "Statuses" %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tags/">{% trans "Tags" %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tasks/">{% trans "Tasks" %}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout/">{% trans "Logout" %}</a>
+        </li>
         </ul>
+        {% else %}
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="/login/">{% trans "Login" %}</a>
@@ -37,7 +50,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/users/create/">{% trans "Sign-up" %}</a>
           </li>
-          
+        {% endif %}
       </div>
     </nav>
     <div class="container wrapper flex-grow-1">
