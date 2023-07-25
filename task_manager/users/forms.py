@@ -6,7 +6,7 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout, MultiField, Div, Field
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 
 class NewUserForm(UserCreationForm):
     """
@@ -36,4 +36,16 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
         return user
-        
+
+class UserUpdateForm(NewUserForm):
+
+    """
+    Form to update user information
+    """
+
+    def clean_username(self):
+        """
+        Override the clean_username method to remove uniqueness validation
+        """
+        return self.cleaned_data.get('username')
+

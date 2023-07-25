@@ -2,6 +2,18 @@
 {% load i18n %}
 
 {% block content %}
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
 <div class="container text-center">
   <h1 class="my-4">{% trans "Users" %}</h1>
 
@@ -25,9 +37,9 @@
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>{{ user.date_joined }}</td>
                 <td>
-                    <a href="">{% trans "Modify" %}</a>
+                    <a href="{% url 'user_update' user.id %}">{% trans "Modify" %}</a>
                     <br>
-                    <a href="">{% trans "Delete" %}</a>
+                    <a href="{% url 'user_delete' user.id %}">{% trans "Delete" %}</a>
                 </td>
             </tr>
             {% endfor %}

@@ -4,13 +4,13 @@
 
 {% block content %}
 <div class="container max-width">
-    <h1 class="my-4 text-center">{% trans "Registration" %}</h1>
-    <form method="post">
+    <h1 class="my-4 text-center">{% trans "Edit user" %}</h1>
+    <form action="{% url 'user_update' pk=user_id %}" method="post">
     {% csrf_token %}
     {{ form|crispy }}
 
     <div class="form-group text-center">
-        <input class="btn btn-primary" type="submit" value="{% trans 'Register' %}">
+        <input class="btn btn-primary" type="submit" value="{% trans 'Update' %}">
     </div>
     </form>
     <style>
