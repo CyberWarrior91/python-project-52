@@ -22,7 +22,7 @@ class UserList(ListView):
 
 class UserCreateView(View):
     success_url = '/login/'
-
+    
     def get(self, request, *args, **kwargs):
         form = NewUserForm
         return render(request, 'users/user_create.html', {'form': form})
