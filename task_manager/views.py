@@ -58,8 +58,3 @@ class UserLogoutView(LogoutView):
         response = super().dispatch(request, *args, **kwargs)
         messages.success(request, _('You have been logged out'))
         return response
-
-def users_create(request):
-    return render(request, 'registration.html')
-
-
