@@ -1,0 +1,94 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$RmBLdGZhS1F1lwhNfmwpR8$8DcNZ8FzrMbeKi6xyRLst6wfoU3WKkCEwi0DrajGh5k=",
+    "last_login": "2023-07-15T20:28:05.719Z",
+    "is_superuser": false,
+    "username": "Vlad",
+    "first_name": "Vlad",
+    "last_name": "Jones",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-07-11T17:16:45.402Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$siAsd9VaBbrt3gRVKHmGvt$TccY6owl+aPv6SHh3KUnuto+HhqPJHCbaKgPHkFBa5c=",
+    "last_login": "2023-07-21T14:27:38.486Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "example@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-07-11T17:20:46.179Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "12345ebat",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Brad",
+    "first_name": "Brad",
+    "last_name": "Pitt",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-07-12T11:30:58.299Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$x4SnEDsegZf0BOa5hxVwDN$qjIFS35OGa5HPNmX5kF9FRQ96bVnDEd4I8l30Wb0Sgg=",
+    "last_login": "2023-07-21T16:21:27.928Z",
+    "is_superuser": false,
+    "username": "Eugene",
+    "first_name": "Eugene",
+    "last_name": "Star",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-07-14T19:21:59Z",
+    "groups": [],
+    "user_permissions": [
+      30
+    ]
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$zck9G5iuZjwvIdcDozBPys$U8XQeibfih2M914Xr4latgt07rD35BdfisRYstCD7gA=",
+    "last_login": "2023-07-21T16:21:57.350Z",
+    "is_superuser": false,
+    "username": "Tyson",
+    "first_name": "Mike",
+    "last_name": "Tyson",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-07-15T20:42:42.488Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
