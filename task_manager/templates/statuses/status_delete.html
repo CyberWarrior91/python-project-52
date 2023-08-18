@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container max-width">
+    <h1 class="my-4 text-center">{% trans "Delete status" %}</h1>
+    <p class="text-center">{% trans "Are you sure you want to delete" %} {{ object }}?</p>
+    <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <div class="text-center">
+      <div class="form-group ">
+          <input class="btn btn-danger" type="submit" value="{% trans 'Yes, delete' %}">
+          <a class="btn btn-info btn-md" href="{% url 'status_index' %}">{% trans "Cancel" %}</a>
+      </div>
+      </form>
+      
+    </div>
+    <style>
+        .max-width {
+          max-width: 700px;
+        }
+        .asteriskField {
+            display: none;
+        }
+      </style>
+</div>
+
+{% endblock %} 

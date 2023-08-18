@@ -2,10 +2,23 @@
 {% load i18n %}
 
 {% block content %}
-<div class="container text-center">
-  <h1 class="my-4">{% trans "Statuses" %}</h1>
-    <a href="/create">{% trans "Create status" %}</a>
-  <table class="table table-bordered table-hover">
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+<div class="container">
+  <h1 class="my-4 text-center">{% trans "Statuses" %}</h1>
+    <a class="btn btn-success btn-md" href="{% url 'status_create' %}">{% trans "Create status" %}</a>
+  <table class="table table-lg-responsive table-hover mt-4">
     <thead class="thead-light">
         <tr>
             <th>{% trans "ID" %}</th>
@@ -23,9 +36,9 @@
                 <td>{{ status.name }}</td>
                 <td>{{ status.created_at }}</td>
                 <td>
-                    <a href="">{% trans "Modify" %}</a>
+                    <a href="{% url 'status_update' status.id %}">{% trans "Modify" %}</a>
                     <br>
-                    <a href="">{% trans "Delete" %}</a>
+                    <a href="{% url 'status_delete' status.id %}">{% trans "Delete" %}</a>
                 </td>
             </tr>
             {% endfor %}
