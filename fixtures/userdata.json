@@ -22,7 +22,7 @@
   "pk": 2,
   "fields": {
     "password": "pbkdf2_sha256$600000$siAsd9VaBbrt3gRVKHmGvt$TccY6owl+aPv6SHh3KUnuto+HhqPJHCbaKgPHkFBa5c=",
-    "last_login": "2023-07-21T14:27:38.486Z",
+    "last_login": "2023-07-31T09:20:10.460Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -58,7 +58,7 @@
   "pk": 5,
   "fields": {
     "password": "pbkdf2_sha256$600000$x4SnEDsegZf0BOa5hxVwDN$qjIFS35OGa5HPNmX5kF9FRQ96bVnDEd4I8l30Wb0Sgg=",
-    "last_login": "2023-07-21T16:21:27.928Z",
+    "last_login": "2023-07-21T16:21:27Z",
     "is_superuser": false,
     "username": "Eugene",
     "first_name": "Eugene",
@@ -68,17 +68,15 @@
     "is_active": true,
     "date_joined": "2023-07-14T19:21:59Z",
     "groups": [],
-    "user_permissions": [
-      30
-    ]
+    "user_permissions": []
   }
 },
 {
   "model": "auth.user",
   "pk": 6,
   "fields": {
-    "password": "pbkdf2_sha256$600000$zck9G5iuZjwvIdcDozBPys$U8XQeibfih2M914Xr4latgt07rD35BdfisRYstCD7gA=",
-    "last_login": "2023-07-21T16:21:57.350Z",
+    "password": "pbkdf2_sha256$600000$g8FxEWNkZwLFny10f1vtlk$j/UIDLcqXeeBg7bYhuN5+7b2qLK2tsnAkPcbCuN+lmo=",
+    "last_login": "2023-07-30T14:56:44.689Z",
     "is_superuser": false,
     "username": "Tyson",
     "first_name": "Mike",
@@ -87,6 +85,42 @@
     "is_staff": false,
     "is_active": true,
     "date_joined": "2023-07-15T20:42:42.488Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 9,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$5qDqSWtNob7TPZtXGxaK3F$q5Ni87QvmHKGDQUo6lcurbc2fEs1c2KQubLEyKjDhC0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Billy",
+    "first_name": "Bill",
+    "last_name": "Clinton",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-07-26T15:40:35.888Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$gBR36tQysAki3FVvE5vNDT$pRkSI/RpoOpZADKxBX0oUrkr/GI7V+F9RGkmeXAHkSE=",
+    "last_login": "2023-07-31T09:28:59.888Z",
+    "is_superuser": false,
+    "username": "Mary",
+    "first_name": "Mary",
+    "last_name": "Jay",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-07-31T08:24:59.615Z",
     "groups": [],
     "user_permissions": []
   }

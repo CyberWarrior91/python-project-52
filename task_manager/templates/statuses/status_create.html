@@ -1,16 +1,25 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<div class="container text-center">
-    <h1 class="my-4">{% trans 'Create status' %}</h1>
-    <form method="post" action="/">
+<div class="container  max-width">
+    <h1 class="my-4 text-center">{% trans 'Create status' %}</h1>
+    <form method="post">
+        {% csrf_token %}
         {{ form|crispy }}
-        <label>{% trans 'Name' %}</label>
-        <input type="text" placeholder="{% trans 'Name' %}" name="status.name">
+
         <div class="form-group text-center">
             <input class="btn btn-primary" type="submit" value="{% trans 'Create' %}">
         </div>
     </form>
 </div>
+<style>
+    .max-width {
+      max-width: 700px;
+    }
+    .asteriskField {
+        display: none;
+    }
+  </style>
 {% endblock %}

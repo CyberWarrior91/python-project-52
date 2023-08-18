@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container  max-width">
+    <h1 class="my-4 text-center">{% trans 'Create task' %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+
+        <div class="form-group text-center">
+            <input class="btn btn-primary" type="submit" value="{% trans 'Create' %}">
+        </div>
+    </form>
+</div>
+<style>
+    .max-width {
+      max-width: 700px;
+    }
+    .asteriskField {
+        display: none;
+    }
+  </style>
+{% endblock %}

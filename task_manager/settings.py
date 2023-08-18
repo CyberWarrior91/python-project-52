@@ -32,7 +32,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ['webserver', 'localhost', 'python-project-52-production-882e.up.railway.app']
+ALLOWED_HOSTS = ['webserver', 
+                 'localhost', 
+                 'python-project-52-production-882e.up.railway.app',
+                 '127.0.0.1'
+                 ]
 
 
 # Application definition
@@ -48,8 +52,13 @@ INSTALLED_APPS = [
     'bootstrap4',
     'django_extensions',
     'task_manager.users',
+    'task_manager.tasks',
+    'task_manager.labels',
+    'fixtures',
+    'task_manager.statuses',
     'crispy_forms',
     'crispy_bootstrap4',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -180,4 +189,5 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 LOGIN_URL = 'login'
+
 

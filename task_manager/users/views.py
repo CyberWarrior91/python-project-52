@@ -1,33 +1,21 @@
 from typing import Any
 from django.http.response import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.edit import DeleteView
+from django.contrib.auth.models import User
 from .forms import NewUserForm, UserUpdateForm
 from django.contrib import messages
-from .models import CustomUser
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext_lazy as _
-from django.urls import reverse
-from django.contrib.auth.forms import UserChangeForm
-from django.contrib.auth.models import AbstractUser
-from django.http import HttpRequest, HttpResponse
-
-
+from task_manager.views import UserLoginMixin
+from django.db.models import Q
+from task_manager.tasks.models import Task
 # Create your views here.
-class UserLoginMixin(LoginRequiredMixin):
-    permission_denied_message = _('You are not authorized! Please login to the system.')
-    permission_denied_url = reverse_lazy('login')
-
-    def handle_no_permission(self) -> HttpResponseRedirect:
-        messages.error(self.request, self.get_permission_denied_message(), extra_tags='danger')
-        return redirect(self.permission_denied_url)
-
 
 class UserList(ListView):
-    model = CustomUser
+    model = User
     template_name = 'users/index.html'
     context_object_name = 'users'
 
@@ -55,7 +43,7 @@ class UserUpdateView(UserLoginMixin, View):
         user_id = request.user.pk
         page_id = kwargs.get('pk')
         if user_id == page_id:
-            user = CustomUser.objects.get(pk=user_id)
+            user = get_object_or_404(User, pk=user_id)
             form = UserUpdateForm(instance=user)
             return render(request, 'users/user_update.html', context={
                 'form': form, 'user_id':user_id, })
@@ -66,7 +54,7 @@ class UserUpdateView(UserLoginMixin, View):
 
     def post(self, request, *args, **kwargs):
         user_id = kwargs.get('pk')
-        user = CustomUser.objects.get(pk=user_id)
+        user = User.objects.get(pk=user_id)
         form = UserUpdateForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
@@ -78,15 +66,16 @@ class UserUpdateView(UserLoginMixin, View):
 
 class UserDeleteView(UserLoginMixin, DeleteView):
     template_name = 'users/user_delete.html'
-    model = CustomUser
+    model = User
     success_url = '/users/'
 
     def get(self, request, *args, **kwargs):
         user_id = request.user.pk
         page_id = kwargs.get('pk')
         if user_id == page_id:
-            self.object = self.model.objects.get(pk=user_id)
+            self.object = get_object_or_404(self.model, pk=user_id)
             form = self.get_form()
+            
             if form.is_valid():
                 return self.form_valid(form)
             else:
@@ -94,7 +83,18 @@ class UserDeleteView(UserLoginMixin, DeleteView):
         else:
             messages.error(request, _('You have no rights to modify another user.'), extra_tags='danger')
             return redirect(self.success_url)
-    
+
+    def post(self, request, *args, **kwargs):
+        user_id = request.user.pk
+        form = self.get_form()
+        self.object = get_object_or_404(self.model, pk=user_id)
+        user_tasks = Task.objects.filter(Q(creator=self.object) | Q(executor=self.object))
+        if user_tasks:
+            messages.error(request, _("Unable to delete the user, because it's being used"), extra_tags='danger')
+            return redirect(self.success_url)
+        else:
+            return self.form_valid(form)
+
     def form_valid(self, form):
         self.object.delete()
         messages.success(self.request, _('The user has been deleted successfully'))

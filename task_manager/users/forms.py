@@ -1,12 +1,6 @@
-from django import forms
 from django.contrib.auth.models import User
-
-from .models import CustomUser
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit, Layout, MultiField, Div, Field
 from django.utils.translation import gettext_lazy as _
-from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm
 
 class NewUserForm(UserCreationForm):
     """
@@ -15,11 +9,22 @@ class NewUserForm(UserCreationForm):
     """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        placeholders = {
+            'first_name': _('First Name'),
+            'last_name': _('Last Name'),
+            'username': _('Username'),
+            'password1': _('Password'),
+            'password2': _('Confirm Password'),
+        }
+        for field_name, field in self.fields.items():
+            field.widget.attrs['placeholder'] = placeholders.get(field_name, '')
+
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
-
+    
     class Meta:
-        model = CustomUser
+        model = User
         fields = ("first_name", "last_name", "username",
                   "password1", "password2")
 

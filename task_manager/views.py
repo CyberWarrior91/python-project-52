@@ -1,19 +1,15 @@
 # *task_manager/views.py*
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.base import TemplateView
 import logging
 from django.utils.translation import gettext as _
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.contrib import messages
-from django.contrib.messages.views import SuccessMessageMixin
-from task_manager.users.forms import NewUserForm
-
-from django.contrib.auth import login as auth_login
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from django.contrib.auth.forms import AuthenticationForm
-from django import forms
+
 
 logger = logging.getLogger(__name__)
 
@@ -56,5 +52,13 @@ class UserLogoutView(LogoutView):
     def dispatch(self, request, *args, **kwargs):
         # Call the parent dispatch method
         response = super().dispatch(request, *args, **kwargs)
-        messages.success(request, _('You have been logged out'))
+        messages.info(request, _('You have been logged out'))
         return response
+
+class UserLoginMixin(LoginRequiredMixin):
+    permission_denied_message = _('You are not authorized! Please login to the system.')
+    permission_denied_url = reverse_lazy('login')
+
+    def handle_no_permission(self) -> HttpResponseRedirect:
+        messages.error(self.request, self.get_permission_denied_message(), extra_tags='danger')
+        return redirect(self.permission_denied_url)
