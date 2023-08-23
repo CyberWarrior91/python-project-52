@@ -31,9 +31,13 @@ lint:
 test:
 	@$(MANAGE) test
 
-.PHONY: start
+.PHONY: syncdb
+syncdb:
+	@$(MANAGE) syncdb --noinput
+
+.PHONY: start	
 start:
 	@poetry install
-	@make migrations
-	@make migrate
+	@$(MANAGE) makemigrations
+	@$(MANAGE) migrate
 	@$(MANAGE) runserver
