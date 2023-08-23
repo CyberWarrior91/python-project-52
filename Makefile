@@ -33,5 +33,6 @@ test:
 
 .PHONY: start
 start:
+	@poetry install
 	@$(MANAGE) migrate
 	@$(MANAGE) runserver
