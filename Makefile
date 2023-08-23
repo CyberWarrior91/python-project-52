@@ -34,5 +34,6 @@ test:
 .PHONY: start
 start:
 	@poetry install
-	@$(MANAGE) migrate
+	@make migrations
+	@make migrate
 	@$(MANAGE) runserver
