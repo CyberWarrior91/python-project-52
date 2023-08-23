@@ -23,6 +23,6 @@ class UserTestCase(TestCase):
         self.assertEqual(status.name, 'test new')
 
     def test_delete_status(self):
-        status = Status.objects.get(name='third status')
+        status = Status.objects.get(name='done')
         status.delete()
-        self.assertRaises(Status.DoesNotExist, Status.objects.get, name='third status')
+        self.assertRaises(Status.DoesNotExist, Status.objects.get, name='done')

@@ -32,6 +32,7 @@ class TaskCreateView(UserLoginMixin, View):
             task = form.save(commit=False)
             task.creator = request.user
             task.save()
+            form.save_m2m()
             messages.success(request, _('The task was created successfully'))
             return redirect(self.success_url)
         else:
@@ -74,19 +75,14 @@ class TaskDeleteView(UserLoginMixin, DeleteView):
             messages.error(self.request, _("Only the author of the task can delete it"), extra_tags='danger')
             return redirect(self.success_url)
         else:
-            return render(request, self.template_name)
+            return render(request, self.template_name, context={'object': self.object})
 
     def post(self, request, *args, **kwargs):
-        current_user = request.user
         task_id = kwargs.get('pk')
         form = self.get_form()
         self.object = get_object_or_404(self.model, pk=task_id)
-        if current_user == self.object.creator:
-            return self.form_valid(form)
-        else:
-            messages.error(request, _("Only the author of the task can delete it"), extra_tags='danger')
-            return redirect(self.success_url)
-
+        return self.form_valid(form)
+        
     
     def form_valid(self, form):
         self.object.delete()
