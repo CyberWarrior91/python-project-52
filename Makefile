@@ -30,3 +30,8 @@ lint:
 .PHONY: test
 test:
 	@$(MANAGE) test
+
+.PHONY: start
+start:
+	@$(MANAGE) migrate
+	@$(MANAGE) runserver
