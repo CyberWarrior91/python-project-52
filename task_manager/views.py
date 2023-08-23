@@ -24,7 +24,6 @@ class HomePageView(TemplateView):
     template_name = 'index.html'
     
     def index(self, request):
-        
         logger.error('This is an error message')
         return render(request, HomePageView.template_name)
 
