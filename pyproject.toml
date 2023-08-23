@@ -19,11 +19,11 @@ django-crispy-forms = "^2.0"
 crispy-bootstrap4 = "^2022.1"
 django-filter = "^23.2"
 rollbar = "^0.16.3"
+django-extensions = "^3.2.3"
 
 
 [tool.poetry.group.dev.dependencies]
 ipython = "^8.5.0"
-django-extensions = "^3.2.3"
 pytest-django = "^4.5.2"
 flake8 = "^5.0.4"
 
