@@ -25,6 +25,6 @@ class TaskFilter(FilterSet):
 
     def filter_show_my_tasks(self, queryset, name, value):
         if value:
-            user = self.request.user  # assuming you have access to the request object
+            user = self.request.user
             return queryset.filter(creator=user)
         return queryset

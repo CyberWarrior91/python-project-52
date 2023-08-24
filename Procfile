@@ -1,1 +1,1 @@
-web: poetry install && poetry run python manage.py migrate && gunicorn task_manager.wsgi
+web: poetry install && poetry run python manage.py makemigrations && poetry run python manage.py migrate && gunicorn task_manager.wsgi
