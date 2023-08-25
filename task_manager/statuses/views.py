@@ -5,7 +5,7 @@ from django.views import View
 from .forms import StatusCreateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.views import UserLoginMixin, ObjectUpdateView
+from task_manager.views import UserLoginMixin, ObjectCreateView, ObjectUpdateView
 
 # Create your views here.
 class StatusList(UserLoginMixin, ListView):
@@ -14,22 +14,11 @@ class StatusList(UserLoginMixin, ListView):
     context_object_name = 'statuses'
 
 
-class StatusCreateView(UserLoginMixin, View):
+class StatusCreateView(ObjectCreateView):
     success_url = '/statuses/'
-    
-    def get(self, request, *args, **kwargs):
-        form = StatusCreateForm
-        return render(request, 'statuses/status_create.html', {'form': form})
-
-    def post(self, request, *args, **kwargs):
-        form = StatusCreateForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, _('The status was created successfully'))
-            return redirect(self.success_url)
-        else:
-            return render(request, 'statuses/status_create.html', {'form': form})
-
+    form = StatusCreateForm
+    create_url = 'statuses/status_create.html'
+    success_message = _('The status was created successfully')
 
 
 class StatusUpdateView(ObjectUpdateView):
