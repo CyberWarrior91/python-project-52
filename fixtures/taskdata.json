@@ -3,14 +3,13 @@
   "model": "tasks.task",
   "pk": 2,
   "fields": {
-    "name": "2 task",
-    "description": "sdad",
-    "status": 1,
+    "name": "1 task",
+    "description": "sdadweq",
+    "status": 3,
     "creator": 11,
     "executor": 6,
     "created_at": "2023-08-18T16:48:37.618Z",
     "labels": [
-      2,
       3
     ]
   }
@@ -32,14 +31,29 @@
 },
 {
   "model": "tasks.task",
-  "pk": 4,
+  "pk": 9,
   "fields": {
-    "name": "4 task",
+    "name": "Tyson task",
+    "description": "something",
+    "status": 3,
+    "creator": 6,
+    "executor": 4,
+    "created_at": "2023-08-22T15:20:20.679Z",
+    "labels": [
+      3
+    ]
+  }
+},
+{
+  "model": "tasks.task",
+  "pk": 12,
+  "fields": {
+    "name": "test task 3",
     "description": "",
     "status": 1,
     "creator": 11,
     "executor": 5,
-    "created_at": "2023-08-19T08:00:56.658Z",
+    "created_at": "2023-08-25T09:45:26.501Z",
     "labels": [
       2,
       3
@@ -48,32 +62,16 @@
 },
 {
   "model": "tasks.task",
-  "pk": 7,
+  "pk": 13,
   "fields": {
-    "name": "6 task",
-    "description": "",
-    "status": 1,
-    "creator": 11,
-    "executor": 2,
-    "created_at": "2023-08-19T08:19:06.036Z",
-    "labels": [
-      3
-    ]
-  }
-},
-{
-  "model": "tasks.task",
-  "pk": 8,
-  "fields": {
-    "name": "another task",
+    "name": "create something",
     "description": "",
     "status": 4,
     "creator": 11,
-    "executor": 6,
-    "created_at": "2023-08-19T08:19:38.165Z",
+    "executor": 4,
+    "created_at": "2023-08-25T09:45:46.500Z",
     "labels": [
-      2,
-      3
+      2
     ]
   }
 }
