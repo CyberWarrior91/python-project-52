@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from .models import Task
-from task_manager.labels.models import Label
+from task_manager.form_class import apply_placeholders
 from django.utils.translation import gettext_lazy as _
 from django import forms
 
@@ -14,8 +14,8 @@ class TaskCreateForm(ModelForm):
             'name': _('Name'),
             'description': _('Description'),
         }
-        for field_name, field in self.fields.items():
-            field.widget.attrs['placeholder'] = placeholders.get(field_name, '')
+        apply_placeholders(self, placeholders)
+        
 
     class Meta:
         model = Task
