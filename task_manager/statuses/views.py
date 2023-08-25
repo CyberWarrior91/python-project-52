@@ -5,7 +5,7 @@ from django.views import View
 from .forms import StatusCreateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.views import UserLoginMixin
+from task_manager.views import UserLoginMixin, ObjectUpdateView
 
 # Create your views here.
 class StatusList(UserLoginMixin, ListView):
@@ -30,28 +30,15 @@ class StatusCreateView(UserLoginMixin, View):
         else:
             return render(request, 'statuses/status_create.html', {'form': form})
 
-class StatusUpdateView(UserLoginMixin, View):
-    success_url = '/statuses/'
-    
-    def get(self, request, *args, **kwargs):
-        status_id = kwargs.get('pk')
-        status = get_object_or_404(Status, pk=status_id)
-        form = StatusCreateForm(instance=status)
-        return render(request, 'statuses/status_update.html', context={
-                'form': form, 'status_id': status_id })
-    
 
-    def post(self, request, *args, **kwargs):
-        status_id = kwargs.get('pk')
-        status = get_object_or_404(Status, pk=status_id)
-        form = StatusCreateForm(request.POST, instance=status)
-        if form.is_valid():
-            form.save()
-            messages.success(request, _('The status has been updated successfully'))
-            return redirect(self.success_url)
-        else:
-            return render(request, 'statuses/status_update.html', {'form': form, 'status_id': status_id})
-        
+
+class StatusUpdateView(ObjectUpdateView):
+    success_url = '/statuses/'
+    model = Status
+    form = StatusCreateForm
+    update_url = 'statuses/status_update.html'
+    success_message = _('The status has been updated successfully')
+
 
 class StatusDeleteView(UserLoginMixin, DeleteView):
 

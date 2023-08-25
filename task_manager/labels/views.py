@@ -5,7 +5,7 @@ from django.views import View
 from .forms import LabelCreateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.views import UserLoginMixin
+from task_manager.views import UserLoginMixin, ObjectUpdateView
 # Create your views here.
 
 class LabelList(UserLoginMixin, ListView):
@@ -30,27 +30,12 @@ class LabelCreateView(UserLoginMixin, View):
         else:
             return render(request, 'labels/label_create.html', {'form': form})
 
-class LabelUpdateView(UserLoginMixin, View):
+class LabelUpdateView(ObjectUpdateView):
     success_url = '/labels/'
-    
-    def get(self, request, *args, **kwargs):
-        label_id = kwargs.get('pk')
-        label = get_object_or_404(Label, pk=label_id)
-        form = LabelCreateForm(instance=label)
-        return render(request, 'labels/label_update.html', context={
-                'form': form, 'label_id': label_id })
-    
-
-    def post(self, request, *args, **kwargs):
-        label_id = kwargs.get('pk')
-        label = get_object_or_404(Label, pk=label_id)
-        form = LabelCreateForm(request.POST, instance=label)
-        if form.is_valid():
-            form.save()
-            messages.success(request, _('The label has been updated successfully'))
-            return redirect(self.success_url)
-        else:
-            return render(request, 'labels/label_update.html', {'form': form, 'label_id': label_id})
+    model = Label
+    form = LabelCreateForm
+    update_url = 'labels/label_update.html'
+    success_message = _('The label has been updated successfully')
         
 
 class LabelDeleteView(UserLoginMixin, DeleteView):
