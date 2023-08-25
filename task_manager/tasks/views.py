@@ -5,7 +5,7 @@ from django.views import View
 from .forms import TaskCreateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.views import UserLoginMixin
+from task_manager.views import UserLoginMixin, ObjectUpdateView
 from .filters import TaskFilter
 from django_filters.views import FilterView
 
@@ -38,27 +38,12 @@ class TaskCreateView(UserLoginMixin, View):
         else:
             return render(request, 'tasks/task_create.html', {'form': form})
 
-class TaskUpdateView(UserLoginMixin, View):
+class TaskUpdateView(ObjectUpdateView):
     success_url = '/tasks/'
-    
-    def get(self, request, *args, **kwargs):
-        task_id = kwargs.get('pk')
-        task = get_object_or_404(Task, pk=task_id)
-        form = TaskCreateForm(instance=task)
-        return render(request, 'tasks/task_update.html', context={
-                'form': form, 'task_id': task_id })
-    
-
-    def post(self, request, *args, **kwargs):
-        task_id = kwargs.get('pk')
-        task = get_object_or_404(Task, pk=task_id)
-        form = TaskCreateForm(request.POST, instance=task)
-        if form.is_valid():
-            form.save()
-            messages.success(request, _('The task has been updated successfully'))
-            return redirect(self.success_url)
-        else:
-            return render(request, 'tasks/task_update.html', {'form': form, 'task_id': task_id})
+    model = Task
+    form = TaskCreateForm
+    update_url = 'tasks/task_update.html'
+    success_message = _('The task has been updated successfully')
 
 
 class TaskDeleteView(UserLoginMixin, DeleteView):

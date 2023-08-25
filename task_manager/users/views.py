@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 from .forms import NewUserForm, UserUpdateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.views import UserLoginMixin
+from task_manager.views import UserLoginMixin, ObjectUpdateView
 from django.db.models import Q
 from task_manager.tasks.models import Task
 # Create your views here.
@@ -36,32 +36,24 @@ class UserCreateView(View):
         else:
             return render(request, 'users/user_create.html', {'form': form})
 
-class UserUpdateView(UserLoginMixin, View):
+class UserUpdateView(ObjectUpdateView):
     success_url = '/users/'
-    
+    model = User
+    form = UserUpdateForm
+    update_url = 'users/user_update.html'
+    success_message = _('The user has been updated successfully')
+
     def get(self, request, *args, **kwargs):
         user_id = request.user.pk
         page_id = kwargs.get('pk')
         if user_id == page_id:
-            user = get_object_or_404(User, pk=user_id)
-            form = UserUpdateForm(instance=user)
-            return render(request, 'users/user_update.html', context={
-                'form': form, 'user_id':user_id, })
+            user = get_object_or_404(self.model, pk=user_id)
+            form = self.form(instance=user)
+            return render(request, self.update_url, context={
+                'form': form, 'object_id':user_id, })
         else:
             messages.error(request, _('You have no rights to modify another user.'), extra_tags='danger')
             return redirect(self.success_url)
-    
-
-    def post(self, request, *args, **kwargs):
-        user_id = kwargs.get('pk')
-        user = User.objects.get(pk=user_id)
-        form = UserUpdateForm(request.POST, instance=user)
-        if form.is_valid():
-            form.save()
-            messages.success(request, _('The user has been updated successfully'))
-            return redirect(self.success_url)
-        else:
-            return render(request, 'users/user_update.html', {'form': form, 'user_id':user_id,})
 
 
 class UserDeleteView(UserLoginMixin, DeleteView):

@@ -1,5 +1,5 @@
 # *task_manager/views.py*
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.base import TemplateView
 import logging
 from django.utils.translation import gettext as _
@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.views import View
 
 
 logger = logging.getLogger(__name__)
@@ -61,3 +62,28 @@ class UserLoginMixin(LoginRequiredMixin):
     def handle_no_permission(self) -> HttpResponseRedirect:
         messages.error(self.request, self.get_permission_denied_message(), extra_tags='danger')
         return redirect(self.permission_denied_url)
+
+class ObjectUpdateView(UserLoginMixin, View):
+    success_url = None
+    model = None
+    form = None
+    update_url = None
+    success_message = None
+
+    def get(self, request, *args, **kwargs):
+        object_id = kwargs.get('pk')
+        model_object = get_object_or_404(self.model, pk=object_id)
+        form = self.form(instance=model_object)
+        return render(request, self.update_url, context={
+            'form': form, 'object_id': object_id})
+
+    def post(self, request, *args, **kwargs):
+        object_id = kwargs.get('pk')
+        model_object = get_object_or_404(self.model, pk=object_id)
+        form = self.form(request.POST, instance=model_object)
+        if form.is_valid():
+            form.save()
+            messages.success(request, self.success_message)
+            return redirect(self.success_url)
+        else:
+            return render(request, self.update_url, {'form': form, 'object_id': object_id})
