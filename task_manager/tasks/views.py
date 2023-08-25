@@ -5,7 +5,7 @@ from django.views import View
 from .forms import TaskCreateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.views import UserLoginMixin, ObjectUpdateView
+from task_manager.views import UserLoginMixin, ObjectCreateView, ObjectUpdateView
 from .filters import TaskFilter
 from django_filters.views import FilterView
 
@@ -19,24 +19,24 @@ class TaskList(UserLoginMixin, FilterView):
     filterset_class = TaskFilter
 
 
-class TaskCreateView(UserLoginMixin, View):
+class TaskCreateView(ObjectCreateView):
     success_url = '/tasks/'
-    
-    def get(self, request, *args, **kwargs):
-        form = TaskCreateForm
-        return render(request, 'tasks/task_create.html', {'form': form})
+    form = TaskCreateForm
+    create_url = 'tasks/task_create.html'
+    success_message = _('The task was created successfully')
 
     def post(self, request, *args, **kwargs):
-        form = TaskCreateForm(request.POST)
+        form = self.form(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
             task.creator = request.user
             task.save()
             form.save_m2m()
-            messages.success(request, _('The task was created successfully'))
+            messages.success(request, self.success_message)
             return redirect(self.success_url)
         else:
-            return render(request, 'tasks/task_create.html', {'form': form})
+            return render(request, self.create_url, {'form': form})
+
 
 class TaskUpdateView(ObjectUpdateView):
     success_url = '/tasks/'

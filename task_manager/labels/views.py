@@ -5,7 +5,7 @@ from django.views import View
 from .forms import LabelCreateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.views import UserLoginMixin, ObjectUpdateView
+from task_manager.views import UserLoginMixin, ObjectCreateView, ObjectUpdateView
 # Create your views here.
 
 class LabelList(UserLoginMixin, ListView):
@@ -14,21 +14,12 @@ class LabelList(UserLoginMixin, ListView):
     context_object_name = 'labels'
 
 
-class LabelCreateView(UserLoginMixin, View):
+class LabelCreateView(ObjectCreateView):
     success_url = '/labels/'
-    
-    def get(self, request, *args, **kwargs):
-        form = LabelCreateForm
-        return render(request, 'labels/label_create.html', {'form': form})
+    form = LabelCreateForm
+    create_url = 'labels/label_create.html'
+    success_message = _('The label was created successfully')
 
-    def post(self, request, *args, **kwargs):
-        form = LabelCreateForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, _('The label was created successfully'))
-            return redirect(self.success_url)
-        else:
-            return render(request, 'labels/label_create.html', {'form': form})
 
 class LabelUpdateView(ObjectUpdateView):
     success_url = '/labels/'
