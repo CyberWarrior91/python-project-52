@@ -19,3 +19,7 @@ class ObjectCreateForm(ModelForm):
         labels = {
             'name': _('Name'),
         }
+
+def apply_placeholders(self, placeholders):
+    for field_name, field in self.fields.items():
+            field.widget.attrs['placeholder'] = placeholders.get(field_name, '')
