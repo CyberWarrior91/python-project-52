@@ -23,7 +23,7 @@ class UserTestCase(TestCase):
 
     def test_query_params(self):
         test_user = User.objects.get(username='Mary')
-        self.client.login(username=test_user.username, password='12345ebat')
+        self.client.login(username=test_user.username, password='12345mary')
         response = self.client.get('/en/tasks/', {'status': 1, 'executor': 5, 'labels': 2})
         tasks = response.context['tasks']  # Assuming the context variable is named 'tasks'
         # Assert that there are exactly 2 tasks in the response

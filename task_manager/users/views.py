@@ -9,7 +9,12 @@ from django.contrib.auth.models import User
 from .forms import NewUserForm, UserUpdateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.views import UserLoginMixin, ObjectCreateView, ObjectUpdateView
+from task_manager.views import (
+    UserLoginMixin, 
+    ObjectCreateView, 
+    ObjectUpdateView,
+    ObjectDeleteView
+)
 from django.db.models import Q
 from task_manager.tasks.models import Task
 # Create your views here.
@@ -47,10 +52,11 @@ class UserUpdateView(ObjectUpdateView):
             return redirect(self.success_url)
 
 
-class UserDeleteView(UserLoginMixin, DeleteView):
+class UserDeleteView(ObjectDeleteView):
     template_name = 'users/user_delete.html'
     model = User
     success_url = '/users/'
+    success_message = _('The user has been deleted successfully')
 
     def get(self, request, *args, **kwargs):
         user_id = request.user.pk
@@ -58,7 +64,6 @@ class UserDeleteView(UserLoginMixin, DeleteView):
         if user_id == page_id:
             self.object = get_object_or_404(self.model, pk=user_id)
             form = self.get_form()
-            
             if form.is_valid():
                 return self.form_valid(form)
             else:
@@ -77,9 +82,3 @@ class UserDeleteView(UserLoginMixin, DeleteView):
             return redirect(self.success_url)
         else:
             return self.form_valid(form)
-
-    def form_valid(self, form):
-        self.object.delete()
-        messages.success(self.request, _('The user has been deleted successfully'))
-        return redirect(self.success_url)
-        
