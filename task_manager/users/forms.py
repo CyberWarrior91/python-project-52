@@ -53,4 +53,3 @@ class UserUpdateForm(NewUserForm):
         Override the clean_username method to remove uniqueness validation
         """
         return self.cleaned_data.get('username')
-
