@@ -1,6 +1,7 @@
 # *task_manager/views.py*
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import DeleteView
 import logging
 from django.utils.translation import gettext as _
 from django.contrib.auth.views import LoginView, LogoutView
@@ -108,3 +109,27 @@ class ObjectUpdateView(UserLoginMixin, View):
             return redirect(self.success_url)
         else:
             return render(request, self.update_url, {'form': form, 'object_id': object_id})
+
+class ObjectDeleteView(UserLoginMixin, DeleteView):
+    template_name = None
+    success_url = None
+    model = None
+    error_message = None
+    success_message = None
+
+    def post(self, request, *args, **kwargs):
+        object_id = kwargs.get('pk')
+        self.object = get_object_or_404(self.model, pk=object_id)
+        object_tasks = self.object.task_set.all()
+        if object_tasks:
+            messages.error(self.request, self.error_message, extra_tags='danger')
+            return redirect(self.success_url)
+        else:
+            form = self.get_form()
+            if form.is_valid():
+                return self.form_valid(form)
+            
+    def form_valid(self, form):
+        self.object.delete()
+        messages.success(self.request, self.success_message)
+        return redirect(self.success_url)

@@ -5,7 +5,12 @@ from django.views import View
 from .forms import TaskCreateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.views import UserLoginMixin, ObjectCreateView, ObjectUpdateView
+from task_manager.views import (
+    UserLoginMixin, 
+    ObjectCreateView, 
+    ObjectUpdateView,
+    ObjectDeleteView
+)
 from .filters import TaskFilter
 from django_filters.views import FilterView
 
@@ -46,18 +51,19 @@ class TaskUpdateView(ObjectUpdateView):
     success_message = _('The task has been updated successfully')
 
 
-class TaskDeleteView(UserLoginMixin, DeleteView):
-
+class TaskDeleteView(ObjectDeleteView):
     template_name = 'tasks/task_delete.html'
     success_url = '/tasks/'
     model = Task
-    
+    success_message = _('The task has been deleted successfully')
+    error_message = _("Only the author of the task can delete it")
+
     def get(self, request, *args, **kwargs):
         task_id = kwargs.get('pk')
         self.object = get_object_or_404(self.model, pk=task_id)
         current_user = request.user
         if current_user != self.object.creator:
-            messages.error(self.request, _("Only the author of the task can delete it"), extra_tags='danger')
+            messages.error(self.request, self.error_message, extra_tags='danger')
             return redirect(self.success_url)
         else:
             return render(request, self.template_name, context={'object': self.object})
@@ -67,12 +73,6 @@ class TaskDeleteView(UserLoginMixin, DeleteView):
         form = self.get_form()
         self.object = get_object_or_404(self.model, pk=task_id)
         return self.form_valid(form)
-        
-    
-    def form_valid(self, form):
-        self.object.delete()
-        messages.success(self.request, _('The task has been deleted successfully'))
-        return redirect(self.success_url)
 
 
 class SingleTaskView(UserLoginMixin, View):
