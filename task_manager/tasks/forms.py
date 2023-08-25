@@ -13,9 +13,6 @@ class TaskCreateForm(ModelForm):
         placeholders = {
             'name': _('Name'),
             'description': _('Description'),
-            'status': _('Status'),
-            'executor': _('Executor'),
-            'labels': _('Labels'),
         }
         for field_name, field in self.fields.items():
             field.widget.attrs['placeholder'] = placeholders.get(field_name, '')
@@ -25,11 +22,4 @@ class TaskCreateForm(ModelForm):
         fields = ("name", "description", "status",
                   "executor", "labels", 'creator')
         widgets = {'creator': forms.HiddenInput()}
-        labels = {
-            'name': _('Name'),
-            'description': _('Description'),
-            'status': _('Status'),
-            'executor': _('Executor'),
-            'labels': _('Labels'),
-        }
         required = {'description': False, 'executor': False, 'label': False}
