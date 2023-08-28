@@ -41,3 +41,4 @@ start:
 	@$(MANAGE) makemigrations
 	@$(MANAGE) migrate
 	@$(MANAGE) runserver
+
