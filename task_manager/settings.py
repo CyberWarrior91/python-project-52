@@ -34,7 +34,7 @@ DEBUG = os.getenv('DEBUG', False)
 
 ALLOWED_HOSTS = ['webserver', 
                  'localhost', 
-                 'https://python-project-52-production-882e.up.railway.app',
+                 'python-project-52-production-882e.up.railway.app',
                  '127.0.0.1'
                  ]
 
@@ -193,7 +193,7 @@ LOGIN_URL = 'login'
 
 ROLLBAR = {
     'access_token': '9ca6b13b3c5f40f7bd41671e64ccacef',
-    'environment': 'development' if DEBUG else 'production',
+    'environment': 'development' if DEBUG is True else 'production',
     'code_version': '1.0',
     'root': BASE_DIR,
 }
