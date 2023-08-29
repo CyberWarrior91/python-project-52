@@ -9616,3 +9616,35 @@ Traceback (most recent call last):
     raise ValueError("ModelForm has no model class specified.")
 ValueError: ModelForm has no model class specified.
 "GET /ru/labels/create/ HTTP/1.1" 500 181282
+Internal Server Error: /ru/tasks/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/tasks/views.py", line 35, in post
+    task = form.save(commit=False)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/forms/models.py", line 533, in save
+    raise ValueError(
+ValueError: The Task could not be created because the data didn't validate.
+"POST /ru/tasks/create/ HTTP/1.1" 500 78785
+Internal Server Error: /ru/tasks/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/tasks/views.py", line 36, in post
+    task = form.save(commit=False)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/forms/models.py", line 533, in save
+    raise ValueError(
+ValueError: The Task could not be created because the data didn't validate.
+"POST /ru/tasks/create/ HTTP/1.1" 500 78756
