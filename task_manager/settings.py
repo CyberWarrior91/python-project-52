@@ -34,7 +34,7 @@ DEBUG = os.getenv('DEBUG', False)
 
 ALLOWED_HOSTS = ['webserver', 
                  'localhost', 
-                 'python-project-52-production-882e.up.railway.app',
+                 'https://python-project-52-production-882e.up.railway.app',
                  '127.0.0.1'
                  ]
 
