@@ -203,5 +203,5 @@ ROLLBAR = {
 
 CORS_ALLOW_ORIGINS = [
     'localhost',
-    'python-project-52-production-882e.up.railway.app',
+    'https://python-project-52-production-882e.up.railway.app',
 ]
