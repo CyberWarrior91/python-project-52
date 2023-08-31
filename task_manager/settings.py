@@ -201,6 +201,4 @@ ROLLBAR = {
     'root': BASE_DIR,
 }
 
-CORS_ALLOW_ORIGINS = [
-    'https://python-project-52-production-882e.up.railway.app',
-]
+CORS_ALLOW_ALL_ORIGINS = True
