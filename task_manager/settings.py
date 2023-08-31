@@ -30,13 +30,14 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = os.getenv('DEBUG', False)
+DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['webserver', 
-                 'localhost', 
-                 'python-project-52-production-882e.up.railway.app',
-                 '127.0.0.1'
-                 ]
+ALLOWED_HOSTS = [
+    'webserver', 
+    'localhost', 
+    'python-project-52-production-882e.up.railway.app',
+    '127.0.0.1'
+    ]
 
 
 # Application definition
@@ -59,6 +60,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'django_filters',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +73,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'task_manager.urls'
@@ -197,3 +200,8 @@ ROLLBAR = {
     'code_version': '1.0',
     'root': BASE_DIR,
 }
+
+CORS_ALLOW_ORIGINS = [
+    'localhost',
+    'python-project-52-production-882e.up.railway.app',
+]

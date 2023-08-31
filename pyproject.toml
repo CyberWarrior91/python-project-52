@@ -20,6 +20,7 @@ crispy-bootstrap4 = "^2022.1"
 django-filter = "^23.2"
 rollbar = "^0.16.3"
 django-extensions = "^3.2.3"
+django-cors-headers = "^4.2.0"
 
 
 [tool.poetry.group.dev.dependencies]
