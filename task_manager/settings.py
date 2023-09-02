@@ -32,6 +32,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 DEBUG = os.getenv('DEBUG')
 
+ROLLBAR_ACCESS_TOKEN = os.getenv('ROLLBAR_ACCESS_TOKEN')
+
 ALLOWED_HOSTS = [
     'webserver', 
     'localhost', 
@@ -195,7 +197,7 @@ LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = 'login'
 
 ROLLBAR = {
-    'access_token': '9ca6b13b3c5f40f7bd41671e64ccacef',
+    'access_token': ROLLBAR_ACCESS_TOKEN,
     'environment': 'development' if DEBUG is True else 'production',
     'code_version': '1.0',
     'root': BASE_DIR,
