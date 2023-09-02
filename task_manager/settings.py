@@ -207,5 +207,6 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF = os.getenv('HTTPS', None)
 
-if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = 'https://python-project-52-production-882e.up.railway.app'
+CSRF_TRUSTED_ORIGINS = [
+        'https://python-project-52-production-882e.up.railway.app',
+        ]
