@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 from django.core.management import call_command
 # Create your tests here.
 
+
 class UserTestCase(TestCase):
-    
+
     fixtures = ['fixtures/userdata.json']
 
     def setUp(self):
@@ -12,7 +13,11 @@ class UserTestCase(TestCase):
         call_command('loaddata', *self.fixtures)
 
     def test_create_user(self):
-        user = User.objects.create(first_name='Ben', last_name='Green', username='Billy333')
+        user = User.objects.create(
+            first_name='Ben',
+            last_name='Green',
+            username='Billy333'
+        )
         user.save()
         self.assertTrue(User.objects.filter(username='Billy333').exists())
 

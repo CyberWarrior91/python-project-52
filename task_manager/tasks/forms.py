@@ -4,8 +4,8 @@ from task_manager.form_class import apply_placeholders
 from django.utils.translation import gettext_lazy as _
 from django import forms
 
-class TaskCreateForm(ModelForm):
 
+class TaskCreateForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -15,7 +15,6 @@ class TaskCreateForm(ModelForm):
             'description': _('Description'),
         }
         apply_placeholders(self, placeholders)
-        
 
     class Meta:
         model = Task

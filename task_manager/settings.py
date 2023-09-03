@@ -35,11 +35,11 @@ DEBUG = os.getenv('DEBUG')
 ROLLBAR_ACCESS_TOKEN = os.getenv('ROLLBAR_ACCESS_TOKEN')
 
 ALLOWED_HOSTS = [
-    'webserver', 
-    'localhost', 
+    'webserver',
+    'localhost',
     'python-project-52-production-882e.up.railway.app',
-    '127.0.0.1'
-    ]
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -116,16 +116,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -188,7 +192,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    ]
+]
 
 LOGIN_REDIRECT_URL = '/'
 
@@ -208,5 +212,5 @@ CORS_ALLOW_ALL_ORIGINS = True
 CSRF = os.getenv('HTTPS', None)
 
 CSRF_TRUSTED_ORIGINS = [
-        'https://python-project-52-production-882e.up.railway.app',
-        ]
+    'https://python-project-52-production-882e.up.railway.app',
+]

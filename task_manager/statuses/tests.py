@@ -3,8 +3,9 @@ from .models import Status
 from django.core.management import call_command
 # Create your tests here.
 
+
 class UserTestCase(TestCase):
-    
+
     fixtures = ['fixtures/statusdata.json']
 
     def setUp(self):

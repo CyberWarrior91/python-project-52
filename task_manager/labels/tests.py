@@ -3,8 +3,9 @@ from .models import Label
 from django.core.management import call_command
 # Create your tests here.
 
+
 class UserTestCase(TestCase):
-    
+
     fixtures = ['fixtures/labeldata.json']
 
     def setUp(self):

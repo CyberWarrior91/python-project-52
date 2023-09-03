@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Task
-from django.views.generic import DeleteView
 from django.views import View
 from .forms import TaskCreateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from task_manager.views import (
-    UserLoginMixin, 
-    ObjectCreateView, 
+    UserLoginMixin,
+    ObjectCreateView,
     ObjectUpdateView,
     ObjectDeleteView
 )
@@ -83,4 +82,8 @@ class SingleTaskView(UserLoginMixin, View):
         task_id = kwargs.get('pk')
         task = self.model.objects.get(pk=task_id)
         labels = task.labels.all()
-        return render(request, self.template_name, context={'task': task, 'labels': labels})
+        return render(
+            request,
+            self.template_name,
+            context={'task': task, 'labels': labels}
+        )

@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.forms import UserCreationForm
 from task_manager.form_class import apply_placeholders
 
+
 class NewUserForm(UserCreationForm):
     """
     Class to handle a form to register a user with
@@ -20,11 +21,10 @@ class NewUserForm(UserCreationForm):
         }
 
         apply_placeholders(self, placeholders)
-        
 
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
-    
+
     class Meta:
         model = User
         fields = ("first_name", "last_name", "username",
@@ -44,12 +44,11 @@ class NewUserForm(UserCreationForm):
             user.save()
         return user
 
-class UserUpdateForm(NewUserForm):
 
+class UserUpdateForm(NewUserForm):
     """
     Form to update user information
     """
-
     def clean_username(self):
         """
         Override the clean_username method to remove uniqueness validation

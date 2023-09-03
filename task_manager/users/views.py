@@ -1,23 +1,18 @@
-from typing import Any
-from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse_lazy
-from django.views import View
 from django.views.generic import ListView
-from django.views.generic.edit import DeleteView
 from django.contrib.auth.models import User
 from .forms import NewUserForm, UserUpdateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from task_manager.views import (
-    UserLoginMixin, 
-    ObjectCreateView, 
+    ObjectCreateView,
     ObjectUpdateView,
     ObjectDeleteView
 )
 from django.db.models import Q
 from task_manager.tasks.models import Task
 # Create your views here.
+
 
 class UserList(ListView):
     model = User
@@ -46,9 +41,12 @@ class UserUpdateView(ObjectUpdateView):
             user = get_object_or_404(self.model, pk=user_id)
             form = self.form(instance=user)
             return render(request, self.update_url, context={
-                'form': form, 'object_id':user_id, })
+                'form': form, 'object_id': user_id, })
         else:
-            messages.error(request, _('You have no rights to modify another user.'), extra_tags='danger')
+            messages.error(
+                request,
+                _('You have no rights to modify another user.'), extra_tags='danger'
+            )
             return redirect(self.success_url)
 
 
@@ -69,7 +67,10 @@ class UserDeleteView(ObjectDeleteView):
             else:
                 return self.form_invalid(form)
         else:
-            messages.error(request, _('You have no rights to modify another user.'), extra_tags='danger')
+            messages.error(
+                request,
+                _('You have no rights to modify another user.'), extra_tags='danger'
+            )
             return redirect(self.success_url)
 
     def post(self, request, *args, **kwargs):
@@ -78,7 +79,11 @@ class UserDeleteView(ObjectDeleteView):
         self.object = get_object_or_404(self.model, pk=user_id)
         user_tasks = Task.objects.filter(Q(creator=self.object) | Q(executor=self.object))
         if user_tasks:
-            messages.error(request, _("Unable to delete the user, because it's being used"), extra_tags='danger')
+            messages.error(
+                request,
+                _("Unable to delete the user, because it's being used"),
+                extra_tags='danger'
+            )
             return redirect(self.success_url)
         else:
             return self.form_valid(form)

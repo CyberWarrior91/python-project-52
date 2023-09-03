@@ -1,17 +1,15 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from .models import Label
-from django.views.generic import ListView, DeleteView
-from django.views import View
+from django.views.generic import ListView
 from .forms import LabelCreateForm
-from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from task_manager.views import (
-    UserLoginMixin, 
-    ObjectCreateView, 
+    UserLoginMixin,
+    ObjectCreateView,
     ObjectUpdateView,
     ObjectDeleteView
 )
 # Create your views here.
+
 
 class LabelList(UserLoginMixin, ListView):
     model = Label
@@ -32,7 +30,7 @@ class LabelUpdateView(ObjectUpdateView):
     form = LabelCreateForm
     update_url = 'labels/label_update.html'
     success_message = _('The label has been updated successfully')
-        
+
 
 class LabelDeleteView(ObjectDeleteView):
     template_name = 'labels/label_delete.html'
