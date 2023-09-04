@@ -26,7 +26,7 @@ DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///db.sqlite3')
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY', '123456')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
