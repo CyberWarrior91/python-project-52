@@ -21,6 +21,8 @@ django-filter = "^23.2"
 rollbar = "^0.16.3"
 django-extensions = "^3.2.3"
 django-cors-headers = "^4.2.0"
+coverage = "^7.3.0"
+codecov = "^2.1.13"
 
 
 [tool.poetry.group.dev.dependencies]

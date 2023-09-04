@@ -29,8 +29,8 @@ lint:
 	@poetry run flake8 task_manager
 .PHONY: test
 test:
-	@$(MANAGE) test
-
+	@poetry run coverage run --source='.' manage.py test
+	coverage xml
 .PHONY: syncdb
 syncdb:
 	@$(MANAGE) syncdb --noinput
@@ -41,4 +41,3 @@ start:
 	@$(MANAGE) makemigrations
 	@$(MANAGE) migrate
 	@$(MANAGE) runserver
-
