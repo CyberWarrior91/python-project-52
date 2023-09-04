@@ -30,7 +30,7 @@ lint:
 .PHONY: test
 test:
 	@poetry run coverage run --source='.' manage.py test
-	coverage xml
+	@poetry run coverage xml
 .PHONY: syncdb
 syncdb:
 	@$(MANAGE) syncdb --noinput
