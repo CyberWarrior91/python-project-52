@@ -31,7 +31,7 @@ class HomePageView(TemplateView):
 
 class UserLoginView(LoginView):
     template_name = 'login.html'
-    success_url = '/main/'
+    next_page = '/main/'
 
     def form_valid(self, form):
         response = super().form_valid(form)
