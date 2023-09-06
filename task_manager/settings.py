@@ -62,11 +62,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'django_filters',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -207,7 +205,6 @@ ROLLBAR = {
     'root': BASE_DIR,
 }
 
-CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF = os.getenv('HTTPS', None)
 
