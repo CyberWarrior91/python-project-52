@@ -4,7 +4,7 @@ from django.core.management import call_command
 # Create your tests here.
 
 
-class UserTestCase(TestCase):
+class StatusTestCase(TestCase):
 
     fixtures = ['fixtures/statusdata.json']
 

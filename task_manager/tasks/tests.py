@@ -7,7 +7,7 @@ from task_manager.labels.models import Label
 # Create your tests here.
 
 
-class UserTestCase(TestCase):
+class TaskTestCase(TestCase):
 
     fixtures = [
         'fixtures/taskdata.json',
