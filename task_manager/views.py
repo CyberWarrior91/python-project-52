@@ -5,7 +5,7 @@ from django.views.generic.edit import DeleteView
 import logging
 from django.utils.translation import gettext as _
 from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
@@ -31,7 +31,7 @@ class HomePageView(TemplateView):
 
 class UserLoginView(LoginView):
     template_name = 'login.html'
-    next_page = '/main/'
+    next_page = '/'
 
     def form_valid(self, form):
         response = super().form_valid(form)
