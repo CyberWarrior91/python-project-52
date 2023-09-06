@@ -1,8 +1,8 @@
 from django.test import TestCase, Client
 from django.core.management import call_command
-from django.contrib.auth.models import User
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse
 from django.utils.translation import activate
+
 
 class UserAuthorizationCase(TestCase):
     fixtures = [
@@ -19,9 +19,9 @@ class UserAuthorizationCase(TestCase):
     def test_login(self):
         activate('ru')
         response = self.client.post(
-           self.login_url,
-           {'username': 'Mary', 'password': '12345ebat'},
-           follow=True
+            self.login_url,
+            {'username': 'Mary', 'password': '12345ebat'},
+            follow=True
         )
         self.assertEqual(response.status_code, 200)
         self.assertRedirects(response, self.home_page)
