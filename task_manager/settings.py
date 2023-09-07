@@ -201,6 +201,17 @@ LOGIN_URL = 'login'
 
 AUTH_USER_MODEL = 'auth.User'
 
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator'),
+        'OPTIONS': {
+            'min_length': 3,
+        },
+    },
+]
+
 ROLLBAR = {
     'access_token': ROLLBAR_ACCESS_TOKEN,
     'environment': 'development' if DEBUG is True else 'production',
