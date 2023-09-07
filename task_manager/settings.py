@@ -199,6 +199,8 @@ LOGOUT_REDIRECT_URL = 'main'
 
 LOGIN_URL = 'login'
 
+AUTH_USER_MODEL = 'auth.User'
+
 ROLLBAR = {
     'access_token': ROLLBAR_ACCESS_TOKEN,
     'environment': 'development' if DEBUG is True else 'production',
