@@ -193,9 +193,9 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-LOGIN_REDIRECT_URL = reverse_lazy('main')
+LOGIN_REDIRECT_URL = '/'
 
-LOGOUT_REDIRECT_URL = reverse_lazy('main')
+LOGOUT_REDIRECT_URL = '/'
 
 LOGIN_URL = 'login'
 
