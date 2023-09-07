@@ -8,6 +8,8 @@ from django.contrib.messages import get_messages
 class UserTestCase(TestCase):
 
     fixtures = ['fixtures/userdata.json']
+    wrong_user_message = 'You have no rights to modify another user.'
+    users_page = 'users/index.html'
 
     def setUp(self):
         # Load fixtures
@@ -31,15 +33,36 @@ class UserTestCase(TestCase):
 
     def test_change_user_failed(self):
         self.client.login(username='Mary', password='12345ebat')
-        response = self.client.get('/en/users/2/update', follow=True)
-        self.assertEqual(response.status_code, 200)
-        # Check for flash message
-        messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(len(messages), 1)
-        self.assertEqual(str(messages[0]), 'You have no rights to modify another user.')
-        self.assertTemplateUsed(response, 'users/index.html')
+        response_change = self.client.get('/en/users/2/update', follow=True)
+        self.assertEqual(response_change.status_code, 200)
+        change_messages = list(get_messages(response_change.wsgi_request))
+        self.assertEqual(len(change_messages), 1)
+        self.assertEqual(str(change_messages[0]), self.wrong_user_message)
+        self.assertTemplateUsed(response_change, self.users_page)
 
     def test_delete_user(self):
         user = User.objects.get(username='Vlad')
         user.delete()
         self.assertRaises(User.DoesNotExist, User.objects.get, username='Vlad')
+
+    def test_delete_user_failed(self):
+        self.client.login(username='Mary', password='12345ebat')
+        response_delete = self.client.get('/en/users/2/delete', follow=True)
+        self.assertEqual(response_delete.status_code, 200)
+        delete_messages = list(get_messages(response_delete.wsgi_request))
+        self.assertEqual(str(delete_messages[0]), self.wrong_user_message)
+        self.assertTemplateUsed(response_delete, self.users_page)
+
+    def q_test_delete_user_with_tasks_failed(self):
+        self.client.login(username='Mary', password='12345ebat')
+        response = self.client.post('/en/users/1/delete', follow=True)
+        self.assertEqual(response.status_code, 200)
+        # Check if the error message is displayed
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(
+            str(messages[0]),
+            "Unable to delete the user, because it's being used"
+        )
+        # Check if the user is redirected back to the '/en/users/' page
+        self.assertRedirects(response, '/en/users/')
