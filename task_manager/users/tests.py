@@ -64,9 +64,9 @@ class UserTestCase(TestCase):
         activate('en')
         user = User.objects.get(username='Mary')
         task = Task.objects.create(
-            name='test', 
-            status=Status.objects.get(pk=3), 
-            creator=user, 
+            name='test',
+            status=Status.objects.get(pk=3),
+            creator=user,
             executor=user
         )
         user.task_set.add(task)
@@ -75,11 +75,15 @@ class UserTestCase(TestCase):
         # Send POST request to delete the user
         response = self.client.post(
             reverse_lazy('user_delete',
-            kwargs={'pk': 1}), follow=True
+                         kwargs={'pk': 1}),
+            follow=True
         )
         # Check if the user is redirected back to the '/en/users/' page
         self.assertRedirects(response, reverse_lazy('users_index'))
         # Check if the error message is displayed
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
-        self.assertEqual(str(messages[0]), "Unable to delete the user, because it's being used")
+        self.assertEqual(
+            str(messages[0]),
+            "Unable to delete the user, because it's being used"
+        )
