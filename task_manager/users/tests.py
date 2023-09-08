@@ -2,12 +2,19 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.core.management import call_command
 from django.contrib.messages import get_messages
+from django.utils.translation import activate
+from django.urls import reverse_lazy
+from task_manager.tasks.models import Task
+from task_manager.statuses.models import Status
 # Create your tests here.
 
 
 class UserTestCase(TestCase):
 
-    fixtures = ['fixtures/userdata.json']
+    fixtures = [
+        'fixtures/userdata.json',
+        'fixtures/statusdata.json',
+    ]
     wrong_user_message = 'You have no rights to modify another user.'
     users_page = 'users/index.html'
 
@@ -47,22 +54,32 @@ class UserTestCase(TestCase):
 
     def test_delete_user_failed(self):
         self.client.login(username='Mary', password='12345ebat')
-        response_delete = self.client.get('/en/users/2/delete', follow=True)
-        self.assertEqual(response_delete.status_code, 200)
-        delete_messages = list(get_messages(response_delete.wsgi_request))
-        self.assertEqual(str(delete_messages[0]), self.wrong_user_message)
-        self.assertTemplateUsed(response_delete, self.users_page)
-
-    def q_test_delete_user_with_tasks_failed(self):
-        self.client.login(username='Mary', password='12345ebat')
-        response = self.client.post('/en/users/1/delete', follow=True)
+        response = self.client.get('/en/users/2/delete', follow=True)
         self.assertEqual(response.status_code, 200)
+        delete_messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(delete_messages[0]), self.wrong_user_message)
+        self.assertTemplateUsed(response, self.users_page)
+
+    def test_delete_user_with_tasks_failed(self):
+        activate('en')
+        user = User.objects.get(username='Mary')
+        task = Task.objects.create(
+            name='test', 
+            status=Status.objects.get(pk=3), 
+            creator=user, 
+            executor=user
+        )
+        user.task_set.add(task)
+        self.client.force_login(user)
+        # Get the delete URL for the user with their primary key
+        # Send POST request to delete the user
+        response = self.client.post(
+            reverse_lazy('user_delete',
+            kwargs={'pk': 1}), follow=True
+        )
+        # Check if the user is redirected back to the '/en/users/' page
+        self.assertRedirects(response, reverse_lazy('users_index'))
         # Check if the error message is displayed
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
-        self.assertEqual(
-            str(messages[0]),
-            "Unable to delete the user, because it's being used"
-        )
-        # Check if the user is redirected back to the '/en/users/' page
-        self.assertRedirects(response, '/en/users/')
+        self.assertEqual(str(messages[0]), "Unable to delete the user, because it's being used")

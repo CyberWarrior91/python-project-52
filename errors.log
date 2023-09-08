@@ -9704,3 +9704,279 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'statusese_update' not found. 'statusese_update' is not a valid view function or pattern name.
 "GET /ru/statuses/2/update/ HTTP/1.1" 500 178193
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 1026, in find_library
+    return parser.libraries[name]
+KeyError: 'crispy_bootstrap4'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 1088, in load
+    lib = find_library(parser, name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 1028, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'crispy_bootstrap4' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+bootstrap4
+cache
+crispy_forms_field
+crispy_forms_filters
+crispy_forms_tags
+crispy_forms_utils
+debugger_tags
+highlighting
+i18n
+indent_text
+l10n
+log
+static
+syntax_color
+tz
+widont
+"GET /ru/login/ HTTP/1.1" 500 176970
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 484, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' form' from 'bootstrap_form form'
+"GET /ru/login/ HTTP/1.1" 500 178088
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 484, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'form'
+"GET /ru/login/ HTTP/1.1" 500 182881
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 484, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'bootstrap'
+"GET /ru/login/ HTTP/1.1" 500 182834
+Internal Server Error: /ru/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 484, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'bootstrap'
+"GET /ru/login/ HTTP/1.1" 500 182834
