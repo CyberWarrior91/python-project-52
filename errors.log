@@ -9980,3 +9980,22 @@ Traceback (most recent call last):
     raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
 django.template.exceptions.TemplateSyntaxError: Invalid filter: 'bootstrap'
 "GET /ru/login/ HTTP/1.1" 500 182834
+Internal Server Error: /en/tasks/1/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/tasks/views.py", line 83, in get
+    task = self.model.objects.get(pk=task_id)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/models/query.py", line 637, in get
+    raise self.model.DoesNotExist(
+task_manager.tasks.models.Task.DoesNotExist: Task matching query does not exist.

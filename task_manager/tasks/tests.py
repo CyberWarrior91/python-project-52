@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from task_manager.statuses.models import Status
 from task_manager.labels.models import Label
 from tests.test_crud_classes import ObjectCRUDCase
+from django.urls import reverse_lazy
 # Create your tests here.
 
 
@@ -32,7 +33,7 @@ class TaskTestCase(TestCase, ObjectCRUDCase):
         Testing filter for tasks
         """
         test_user = User.objects.get(username='Mary')
-        self.client.login(username=test_user.username, password='12345ebat')
+        self.client.force_login(test_user)
         response = self.client.get(
             '/en/tasks/',
             {
@@ -59,3 +60,13 @@ class TaskTestCase(TestCase, ObjectCRUDCase):
                 name='first_task', description='test desc',
                 creator='11', labels=(2, 3), status=99).exists()
         )
+
+    def test_view_task(self):
+        test_user = User.objects.get(username='Mary')
+        self.client.force_login(test_user)
+        task = Task.objects.get(pk=2)
+        response = self.client.get(reverse_lazy('task_single', kwargs={'pk': 2}))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'tasks/task_single.html')
+        response_object = response.context['task']
+        self.assertEqual(response_object.name, task.name)
