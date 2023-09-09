@@ -1,4 +1,4 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.core.management import call_command
 from django.contrib.messages import get_messages
@@ -21,6 +21,7 @@ class UserTestCase(TestCase):
     def setUp(self):
         # Load fixtures
         call_command('loaddata', *self.fixtures)
+        self.client = Client()
 
     def test_create_user(self):
         user = User.objects.create(
@@ -71,16 +72,12 @@ class UserTestCase(TestCase):
         )
         user.task_set.add(task)
         self.client.force_login(user)
-        # Get the delete URL for the user with their primary key
-        # Send POST request to delete the user
         response = self.client.post(
             reverse_lazy('user_delete',
                          kwargs={'pk': 1}),
             follow=True
         )
-        # Check if the user is redirected back to the '/en/users/' page
         self.assertRedirects(response, reverse_lazy('users_index'))
-        # Check if the error message is displayed
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(len(messages), 1)
         self.assertEqual(
