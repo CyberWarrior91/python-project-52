@@ -19,6 +19,9 @@ class LabelTestCase(TestCase, ObjectCRUDCase):
     ]
     pk = 2
     model = Label
+    index_page = 'label_index'
+    objects_plural = 'labels'
+    template_name = 'labels/index.html'
 
     def setUp(self):
         # Load fixtures

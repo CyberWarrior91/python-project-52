@@ -18,6 +18,9 @@ class TaskTestCase(TestCase, ObjectCRUDCase):
     ]
     pk = 2
     model = Task
+    index_page = 'task_index'
+    objects_plural = 'tasks'
+    template_name = 'tasks/index.html'
 
     def setUp(self):
         # Load fixtures

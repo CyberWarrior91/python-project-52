@@ -17,9 +17,11 @@ class UserTestCase(TestCase, ObjectCRUDCase):
         'fixtures/statusdata.json',
     ]
     wrong_user_message = 'You have no rights to modify another user.'
-    users_page = 'users/index.html'
+    index_page = 'users_index'
     model = User
     pk = 1
+    objects_plural = 'users'
+    template_name = 'users/index.html'
 
     def setUp(self):
         # Load fixtures
@@ -42,6 +44,15 @@ class UserTestCase(TestCase, ObjectCRUDCase):
         user.save()
         self.assertEqual(user.first_name, 'Bob')
 
+    def test_users_list(self):
+        url = reverse_lazy('users_index')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'users/index.html')
+        users = response.context['users']
+        for user in users:
+            self.assertIsInstance(user, User)
+        
     def test_change_other_user_failed(self):
         self.client.login(username='Mary', password='12345ebat')
         """
@@ -53,7 +64,7 @@ class UserTestCase(TestCase, ObjectCRUDCase):
         change_messages = list(get_messages(response_change.wsgi_request))
         self.assertEqual(len(change_messages), 1)
         self.assertEqual(str(change_messages[0]), self.wrong_user_message)
-        self.assertTemplateUsed(response_change, self.users_page)
+        self.assertTemplateUsed(response_change, self.template_name)
         """
         Testing the same behaviour for removal of other user
         """
@@ -61,7 +72,7 @@ class UserTestCase(TestCase, ObjectCRUDCase):
         self.assertEqual(response_delete.status_code, 200)
         delete_messages = list(get_messages(response_delete.wsgi_request))
         self.assertEqual(str(delete_messages[0]), self.wrong_user_message)
-        self.assertTemplateUsed(response_delete, self.users_page)
+        self.assertTemplateUsed(response_delete, self.template_name)
 
     def test_delete_user_with_tasks_failed(self):
         """

@@ -18,6 +18,9 @@ class StatusTestCase(TestCase, ObjectCRUDCase):
     ]
     model = Status
     pk = 5
+    index_page = 'status_index'
+    objects_plural = 'statuses'
+    template_name = 'statuses/index.html'
 
     def setUp(self):
         # Load fixtures
