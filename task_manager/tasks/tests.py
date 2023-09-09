@@ -4,10 +4,11 @@ from django.core.management import call_command
 from django.contrib.auth.models import User
 from task_manager.statuses.models import Status
 from task_manager.labels.models import Label
+from tests.test_crud_classes import ObjectCRUDCase
 # Create your tests here.
 
 
-class TaskTestCase(TestCase):
+class TaskTestCase(TestCase, ObjectCRUDCase):
 
     fixtures = [
         'fixtures/taskdata.json',
@@ -15,6 +16,8 @@ class TaskTestCase(TestCase):
         'fixtures/userdata.json',
         'fixtures/statusdata.json'
     ]
+    pk = 2
+    model = Task
 
     def setUp(self):
         # Load fixtures
@@ -22,6 +25,9 @@ class TaskTestCase(TestCase):
         self.client = Client()
 
     def test_query_params(self):
+        """
+        Testing filter for tasks
+        """
         test_user = User.objects.get(username='Mary')
         self.client.login(username=test_user.username, password='12345ebat')
         response = self.client.get(
@@ -36,7 +42,7 @@ class TaskTestCase(TestCase):
         tasks = response.context['tasks']
         self.assertEqual(len(tasks), 2)
 
-    def test_create_task(self):
+    def test_create_object(self):
         task = Task.objects.create(
             name='first_task',
             description='test desc',
@@ -50,14 +56,3 @@ class TaskTestCase(TestCase):
                 name='first_task', description='test desc',
                 creator='11', labels=(2, 3), status=99).exists()
         )
-
-    def test_change_task(self):
-        task = Task.objects.get(pk=2)
-        task.name = 'second task'
-        task.save()
-        self.assertEqual(task.name, 'second task')
-
-    def test_delete_task(self):
-        task = Task.objects.get(pk=2)
-        task.delete()
-        self.assertRaises(Task.DoesNotExist, Task.objects.get, pk=2)

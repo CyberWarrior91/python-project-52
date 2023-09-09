@@ -6,10 +6,11 @@ from django.utils.translation import activate
 from django.urls import reverse_lazy
 from task_manager.tasks.models import Task
 from task_manager.statuses.models import Status
+from tests.test_crud_classes import ObjectCRUDCase
 # Create your tests here.
 
 
-class UserTestCase(TestCase):
+class UserTestCase(TestCase, ObjectCRUDCase):
 
     fixtures = [
         'fixtures/userdata.json',
@@ -17,13 +18,15 @@ class UserTestCase(TestCase):
     ]
     wrong_user_message = 'You have no rights to modify another user.'
     users_page = 'users/index.html'
+    model = User
+    pk = 1
 
     def setUp(self):
         # Load fixtures
         call_command('loaddata', *self.fixtures)
         self.client = Client()
 
-    def test_create_user(self):
+    def test_create_object(self):
         user = User.objects.create(
             first_name='Ben',
             last_name='Green',
@@ -39,29 +42,31 @@ class UserTestCase(TestCase):
         user.save()
         self.assertEqual(user.first_name, 'Bob')
 
-    def test_change_user_failed(self):
+    def test_change_other_user_failed(self):
         self.client.login(username='Mary', password='12345ebat')
+        """
+        Testing whether the error message shows up and redirect happens
+        when trying to change other user's data
+        """
         response_change = self.client.get('/en/users/2/update', follow=True)
         self.assertEqual(response_change.status_code, 200)
         change_messages = list(get_messages(response_change.wsgi_request))
         self.assertEqual(len(change_messages), 1)
         self.assertEqual(str(change_messages[0]), self.wrong_user_message)
         self.assertTemplateUsed(response_change, self.users_page)
-
-    def test_delete_user(self):
-        user = User.objects.get(username='Vlad')
-        user.delete()
-        self.assertRaises(User.DoesNotExist, User.objects.get, username='Vlad')
-
-    def test_delete_user_failed(self):
-        self.client.login(username='Mary', password='12345ebat')
-        response = self.client.get('/en/users/2/delete', follow=True)
-        self.assertEqual(response.status_code, 200)
-        delete_messages = list(get_messages(response.wsgi_request))
+        """
+        Testing the same behaviour for removal of other user
+        """
+        response_delete = self.client.get('/en/users/2/delete', follow=True)
+        self.assertEqual(response_delete.status_code, 200)
+        delete_messages = list(get_messages(response_delete.wsgi_request))
         self.assertEqual(str(delete_messages[0]), self.wrong_user_message)
-        self.assertTemplateUsed(response, self.users_page)
+        self.assertTemplateUsed(response_delete, self.users_page)
 
     def test_delete_user_with_tasks_failed(self):
+        """
+        Testing removal of a user who is linked with any tasks
+        """
         activate('en')
         user = User.objects.get(username='Mary')
         task = Task.objects.create(

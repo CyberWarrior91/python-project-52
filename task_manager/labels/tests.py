@@ -7,37 +7,28 @@ from django.utils.translation import activate
 from task_manager.tasks.models import Task
 from task_manager.statuses.models import Status
 from django.urls import reverse_lazy
+from tests.test_crud_classes import ObjectCRUDCase
 # Create your tests here.
 
 
-class LabelTestCase(TestCase):
+class LabelTestCase(TestCase, ObjectCRUDCase):
 
     fixtures = [
         'fixtures/labeldata.json',
         'fixtures/userdata.json',
     ]
+    pk = 2
+    model = Label
 
     def setUp(self):
         # Load fixtures
         call_command('loaddata', *self.fixtures)
 
-    def test_create_label(self):
-        label = Label.objects.create(name='test label')
-        label.save()
-        self.assertTrue(Label.objects.filter(name='test label').exists())
-
-    def test_change_label(self):
-        label = Label.objects.get(name='1 label')
-        label.name = '1 test label'
-        label.save()
-        self.assertEqual(label.name, '1 test label')
-
-    def test_delete_label(self):
-        label = Label.objects.get(name='2 label')
-        label.delete()
-        self.assertRaises(Label.DoesNotExist, Label.objects.get, name='2 label')
-
     def test_delete_label_failed(self):
+        """
+        Testing whether a label with tasks linked
+        can be removed
+        """
         activate('en')
         user = User.objects.get(pk=1)
         self.client.force_login(user)

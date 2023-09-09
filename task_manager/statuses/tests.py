@@ -6,42 +6,33 @@ from django.core.management import call_command
 from django.urls import reverse_lazy
 from django.contrib.messages import get_messages
 from django.utils.translation import activate
+from tests.test_crud_classes import ObjectCRUDCase
 # Create your tests here.
 
 
-class StatusTestCase(TestCase):
+class StatusTestCase(TestCase, ObjectCRUDCase):
 
     fixtures = [
         'fixtures/statusdata.json',
         'fixtures/userdata.json',
     ]
+    model = Status
+    pk = 5
 
     def setUp(self):
         # Load fixtures
         call_command('loaddata', *self.fixtures)
         self.client = Client()
 
-    def test_create_status(self):
-        status = Status.objects.create(name='zero status')
-        status.save()
-        self.assertTrue(Status.objects.filter(name='zero status').exists())
-
-    def test_change_status(self):
-        status = Status.objects.get(name='new')
-        status.name = 'test new'
-        status.save()
-        self.assertEqual(status.name, 'test new')
-
-    def test_delete_status(self):
-        status = Status.objects.get(name='done')
-        status.delete()
-        self.assertRaises(Status.DoesNotExist, Status.objects.get, name='done')
-
     def test_delete_status_failed(self):
+        """
+        Testing whether a status with tasks linked
+        can be removed
+        """
         activate('en')
         user = User.objects.get(pk=1)
         self.client.force_login(user)
-        status = Status.objects.get(pk=1)
+        status = self.model.objects.get(pk=1)
         Task.objects.create(name='test', creator=user, status=status)
         response = self.client.post(
             reverse_lazy('status_delete',
