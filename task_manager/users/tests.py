@@ -52,7 +52,7 @@ class UserTestCase(TestCase, ObjectCRUDCase):
         users = response.context['users']
         for user in users:
             self.assertIsInstance(user, User)
-        
+
     def test_change_other_user_failed(self):
         self.client.login(username='Mary', password='12345ebat')
         """
