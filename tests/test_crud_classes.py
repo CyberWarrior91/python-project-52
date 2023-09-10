@@ -1,5 +1,3 @@
-from django.test import TestCase, Client
-from django.core.management import call_command
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 

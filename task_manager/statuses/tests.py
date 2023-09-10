@@ -7,6 +7,8 @@ from django.urls import reverse_lazy
 from django.contrib.messages import get_messages
 from django.utils.translation import activate
 from tests.test_crud_classes import ObjectCRUDCase
+from tests.test_form_classes import ObjectFormTest
+from .forms import StatusCreateForm
 # Create your tests here.
 
 
@@ -49,3 +51,10 @@ class StatusTestCase(TestCase, ObjectCRUDCase):
             str(messages[0]),
             "Cannot delete the status, because it's being used"
         )
+
+
+class CreateStatusFormCase(TestCase, ObjectFormTest):
+    form = StatusCreateForm
+    correct_data = {
+        'name': 'test status'
+    }

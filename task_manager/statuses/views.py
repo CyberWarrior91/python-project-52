@@ -2,12 +2,12 @@ from .models import Status
 from django.views.generic import ListView
 from .forms import StatusCreateForm
 from django.utils.translation import gettext_lazy as _
-from task_manager.views import (
-    UserLoginMixin,
+from task_manager.mixins.object_crud_mixins import (
     ObjectCreateView,
     ObjectUpdateView,
     ObjectDeleteView
 )
+from task_manager.mixins.login_mixin import UserLoginMixin
 # Create your views here.
 
 

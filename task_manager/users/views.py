@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .forms import NewUserForm, UserUpdateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.views import (
+from task_manager.mixins.object_crud_mixins import (
     ObjectCreateView,
     ObjectUpdateView,
     ObjectDeleteView

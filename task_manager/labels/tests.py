@@ -8,6 +8,8 @@ from task_manager.tasks.models import Task
 from task_manager.statuses.models import Status
 from django.urls import reverse_lazy
 from tests.test_crud_classes import ObjectCRUDCase
+from tests.test_form_classes import ObjectFormTest
+from .forms import LabelCreateForm
 # Create your tests here.
 
 
@@ -54,3 +56,10 @@ class LabelTestCase(TestCase, ObjectCRUDCase):
             str(messages[0]),
             "Cannot delete the label, because it's being used"
         )
+
+
+class CreateLabelFormCase(TestCase, ObjectFormTest):
+    form = LabelCreateForm
+    correct_data = {
+        'name': 'test label'
+    }

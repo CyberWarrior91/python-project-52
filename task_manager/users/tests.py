@@ -7,6 +7,8 @@ from django.urls import reverse_lazy
 from task_manager.tasks.models import Task
 from task_manager.statuses.models import Status
 from tests.test_crud_classes import ObjectCRUDCase
+from tests.test_form_classes import ObjectFormTest
+from .forms import UserCreationForm, UserUpdateForm
 # Create your tests here.
 
 
@@ -100,3 +102,37 @@ class UserTestCase(TestCase, ObjectCRUDCase):
             str(messages[0]),
             "Unable to delete the user, because it's being used"
         )
+
+
+class CreateUserFormTestCase(TestCase, ObjectFormTest):
+    form = UserCreationForm
+    correct_data = {
+        'first_name': 'test',
+        'last_name': 'user',
+        'username': 'test',
+        'password1': 'testuser',
+        'password2': 'testuser',
+    }
+    wrong_data = {
+        'first_name': 'test',
+        'last_name': 'user',
+        'username': 'test',
+        'password1': '123',
+        'password2': '1234',
+    }
+
+
+class UpdateUserFormTestCase(TestCase, ObjectFormTest):
+    form = UserUpdateForm
+    correct_data = {
+        'first_name': 'test',
+        'last_name': 'user',
+        'username': 'test',
+        'password1': 'testuser1',
+        'password2': 'testuser1',
+    }
+    wrong_data = {
+        'username': 'test',
+        'password1': 'test',
+        'password2': 'testuser',
+    }
