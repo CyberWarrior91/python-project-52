@@ -39,7 +39,6 @@ class UserAuthorizationCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, self.login_template_name)
 
-
     def test_logout(self):
         self.client.login(username='Mary', password='12345ebat')
         response = self.client.get('/logout/', follow=True)
