@@ -8,6 +8,7 @@ class UserAuthorizationCase(TestCase):
     fixtures = [
         'fixtures/userdata.json',
     ]
+    template_name = 'index.html'
 
     def setUp(self):
         # Load fixtures
@@ -31,3 +32,8 @@ class UserAuthorizationCase(TestCase):
         response = self.client.get('/logout/', follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertRedirects(response, self.home_page)
+
+    def test_homepage(self):
+        response = self.client.get(reverse('main'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, self.template_name)
