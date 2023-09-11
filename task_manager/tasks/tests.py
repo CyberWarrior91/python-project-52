@@ -8,6 +8,8 @@ from tests.test_crud_classes import ObjectCRUDCase
 from tests.test_form_classes import ObjectFormTest
 from django.urls import reverse_lazy
 from .forms import TaskCreateForm
+from django.contrib.messages import get_messages
+from django.utils.translation import gettext_lazy as _
 # Create your tests here.
 
 
@@ -67,11 +69,30 @@ class TaskTestCase(TestCase, ObjectCRUDCase):
         test_user = User.objects.get(username='Mary')
         self.client.force_login(test_user)
         task = self.model.objects.get(pk=2)
-        response = self.client.get(reverse_lazy('task_single', kwargs={'pk': 2}))
+        task_labels = task.labels
+        response = self.client.get(reverse_lazy('task_single', kwargs={'pk': task.pk}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'tasks/task_single.html')
         response_object = response.context['task']
         self.assertEqual(response_object.name, task.name)
+        self.assertEqual(response_object.labels, task_labels)
+
+    def test_delete_task_failed(self):
+        """
+        Validates whether the author of a task attempts to delete it
+        """
+        test_user = User.objects.get(username='Vlad')
+        self.client.force_login(test_user)
+        task = self.model.objects.get(pk=2)
+        response = self.client.get(
+            reverse_lazy('task_delete', kwargs={'pk': task.pk}),
+            follow=True
+        )
+        self.assertTemplateUsed(response, self.template_name)
+        self.assertEqual(response.status_code, 200)
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(str(messages[0]), _("Only the author of the task can delete it"))
 
 
 class CreateTaskFormCase(TestCase, ObjectFormTest):

@@ -56,7 +56,8 @@ class UserTestCase(TestCase, ObjectCRUDCase):
             self.assertIsInstance(user, User)
 
     def test_change_other_user_failed(self):
-        self.client.login(username='Mary', password='12345ebat')
+        user = User.objects.get(username="Mary")
+        self.client.force_login(user)
         """
         Testing whether the error message shows up and redirect happens
         when trying to change other user's data
