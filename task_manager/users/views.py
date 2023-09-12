@@ -5,10 +5,12 @@ from .forms import NewUserForm, UserUpdateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from task_manager.mixins.object_crud_mixins import (
-    ObjectCreateView,
     ObjectUpdateView,
     ObjectDeleteView
 )
+from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic.edit import CreateView
 from django.db.models import Q
 from task_manager.tasks.models import Task
 # Create your views here.
@@ -20,10 +22,11 @@ class UserList(ListView):
     context_object_name = 'users'
 
 
-class UserCreateView(ObjectCreateView):
-    success_url = '/login/'
-    form = NewUserForm
-    create_url = 'users/user_create.html'
+class UserCreateView(SuccessMessageMixin, CreateView):
+    model = User
+    success_url = reverse_lazy('login')
+    form_class = NewUserForm
+    template_name = 'users/user_create.html'
     success_message = _('The user registered successfully')
 
 
