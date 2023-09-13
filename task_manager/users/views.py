@@ -4,13 +4,10 @@ from django.contrib.auth.models import User
 from .forms import NewUserForm, UserUpdateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.mixins.object_crud_mixins import (
-    ObjectUpdateView,
-    ObjectDeleteView
-)
+from task_manager.mixins.object_crud_mixins import ObjectDeleteView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.db.models import Q
 from task_manager.tasks.models import Task
 # Create your views here.
@@ -30,11 +27,11 @@ class UserCreateView(SuccessMessageMixin, CreateView):
     success_message = _('The user registered successfully')
 
 
-class UserUpdateView(ObjectUpdateView):
-    success_url = '/users/'
+class UserUpdateView(SuccessMessageMixin, UpdateView):
     model = User
-    form = UserUpdateForm
-    update_url = 'users/user_update.html'
+    success_url = '/users/'
+    form_class = UserUpdateForm
+    template_name = 'users/user_update.html'
     success_message = _('The user has been updated successfully')
 
     def get(self, request, *args, **kwargs):
@@ -42,8 +39,8 @@ class UserUpdateView(ObjectUpdateView):
         page_id = kwargs.get('pk')
         if user_id == page_id:
             user = get_object_or_404(self.model, pk=user_id)
-            form = self.form(instance=user)
-            return render(request, self.update_url, context={
+            form = self.form_class(instance=user)
+            return render(request, self.template_name, context={
                 'form': form, 'object_id': user_id, })
         else:
             messages.error(
