@@ -27,7 +27,16 @@ class HomePageView(TemplateView):
 
 class UserLoginView(SuccessMessageMixin, LoginView):
     template_name = 'login.html'
-    success_message = _('You have been logged in')
+    next_page = '/'
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        if not messages.get_messages(self.request):
+            messages.success(self.request, _('You have been logged in'))
+        return response
+
+    def form_invalid(self, form):
+        return self.render_to_response(self.get_context_data(form=form))
 
 
 class UserLogoutView(LogoutView):
