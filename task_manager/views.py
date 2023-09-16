@@ -5,6 +5,7 @@ import logging
 from django.utils.translation import gettext as _
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 logger = logging.getLogger(__name__)
@@ -24,18 +25,10 @@ class HomePageView(TemplateView):
         return render(request, HomePageView.template_name)
 
 
-class UserLoginView(LoginView):
+class UserLoginView(SuccessMessageMixin, LoginView):
     template_name = 'login.html'
-    next_page = '/'
+    success_message = _('You have been logged in')
 
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        if not messages.get_messages(self.request):
-            messages.success(self.request, _('You have been logged in'))
-        return response
-
-    def form_invalid(self, form):
-        return self.render_to_response(self.get_context_data(form=form))
 
 
 class UserLogoutView(LogoutView):
