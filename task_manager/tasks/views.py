@@ -4,13 +4,15 @@ from django.views import View
 from .forms import TaskCreateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.mixins.object_crud_mixins import ObjectDeleteView
+from task_manager.mixins.object_crud_mixins import (
+    ObjectCreateView,
+    ObjectUpdateView,
+    ObjectDeleteView
+)
 from task_manager.mixins.login_mixin import UserLoginMixin
 from .filters import TaskFilter
 from django_filters.views import FilterView
-from django.urls import reverse_lazy
-from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic.edit import CreateView, UpdateView
+
 # Create your views here.
 
 
@@ -21,15 +23,14 @@ class TaskList(UserLoginMixin, FilterView):
     filterset_class = TaskFilter
 
 
-class TaskCreateView(SuccessMessageMixin, CreateView):
-    model = Task
-    success_url = reverse_lazy('task_index')
-    form_class = TaskCreateForm
-    template_name = 'tasks/task_create.html'
+class TaskCreateView(ObjectCreateView):
+    success_url = '/tasks/'
+    form = TaskCreateForm
+    create_url = 'tasks/task_create.html'
     success_message = _('The task was created successfully')
 
     def post(self, request, *args, **kwargs):
-        form = self.form_class(request.POST)
+        form = self.form(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
             task.creator = request.user
@@ -41,11 +42,11 @@ class TaskCreateView(SuccessMessageMixin, CreateView):
             return render(request, self.create_url, {'form': form})
 
 
-class TaskUpdateView(UserLoginMixin, SuccessMessageMixin, UpdateView):
-    success_url = reverse_lazy('task_index')
+class TaskUpdateView(ObjectUpdateView):
+    success_url = '/tasks/'
     model = Task
-    form_class = TaskCreateForm
-    template_name = 'tasks/task_update.html'
+    form = TaskCreateForm
+    update_url = 'tasks/task_update.html'
     success_message = _('The task has been updated successfully')
 
 
