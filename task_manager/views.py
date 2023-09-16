@@ -30,7 +30,6 @@ class UserLoginView(SuccessMessageMixin, LoginView):
     success_message = _('You have been logged in')
 
 
-
 class UserLogoutView(LogoutView):
     def dispatch(self, request, *args, **kwargs):
         # Call the parent dispatch method
