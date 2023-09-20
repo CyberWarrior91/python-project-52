@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.core.management import call_command
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.translation import activate
 
 
@@ -16,10 +16,10 @@ class UserAuthorizationCase(TestCase):
         call_command('loaddata', *self.fixtures)
         self.client = Client()
         self.login_url = reverse('login')
-        self.home_page = '/ru/'
+        self.home_page = reverse_lazy('main')
 
     def test_login_success(self):
-        activate('ru')
+        activate('en')
         response = self.client.post(
             self.login_url,
             {'username': 'Mary', 'password': '12345ebat'},

@@ -13,6 +13,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 import dj_database_url
+from django.urls import reverse_lazy
 
 
 load_dotenv()
@@ -193,11 +194,11 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-LOGIN_REDIRECT_URL = 'main'
+LOGIN_REDIRECT_URL = reverse_lazy('main')
 
-LOGOUT_REDIRECT_URL = 'main'
+LOGOUT_REDIRECT_URL = reverse_lazy('main')
 
-LOGIN_URL = 'login'
+LOGIN_URL = reverse_lazy('login')
 
 AUTH_USER_MODEL = 'auth.User'
 

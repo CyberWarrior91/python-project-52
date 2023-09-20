@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load crispy_forms_tags %}
-
+{% load bootstrap4 %}
 
 
 {% block content %}
@@ -24,8 +24,7 @@
     {% endif %}
     <form method="post">
       {% csrf_token %}
-      <input type="hidden" name="next" value="{% url 'main' %}">
-      {{ form|crispy }}
+      {% bootstrap_form form %}
       <div class="form-group text-center">
         <input class="btn btn-primary" type="submit" value="{% trans 'Sign-in' %}">
         
