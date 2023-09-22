@@ -55,7 +55,9 @@
     </nav>
     <div class="container wrapper flex-grow-1">
 
-       
+       <div id="title">
+        {% block title %}{% endblock %}
+       </div>
         <div id="content">
             {% block content %}{% endblock %}
         </div>

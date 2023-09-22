@@ -223,6 +223,6 @@ ROLLBAR = {
 
 CSRF = os.getenv('HTTPS', None)
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://python-project-52-production-882e.up.railway.app',
-]
+CSRF = os.getenv('HTTPS', None)
+if CSRF:
+    CSRF_TRUSTED_ORIGINS = ['https://python-project-52-production-882e.up.railway.app']
