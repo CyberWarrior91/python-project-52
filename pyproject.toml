@@ -23,6 +23,7 @@ django-extensions = "^3.2.3"
 django-cors-headers = "^4.2.0"
 coverage = "^7.3.0"
 codecov = "^2.1.13"
+whitenoise = "^6.5.0"
 
 
 [tool.poetry.group.dev.dependencies]

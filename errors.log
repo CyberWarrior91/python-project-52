@@ -10052,3 +10052,264 @@ Traceback (most recent call last):
     raise self.error(
 django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 25: 'bootstrap_form', expected 'endblock'. Did you forget to register or load this tag?
 "GET /ru/login/ HTTP/1.1" 500 169897
+Internal Server Error: /ru/admin/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/handler.py", line 35, in __getitem__
+    return self._storages[alias]
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/templatetags/static.py", line 116, in render
+    url = self.url(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/templatetags/static.py", line 113, in url
+    return self.handle_simple(path)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/templatetags/static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/utils/functional.py", line 266, in inner
+    self._setup()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 537, in _setup
+    self._wrapped = storages[STATICFILES_STORAGE_ALIAS]
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/handler.py", line 43, in __getitem__
+    storage = self.create_storage(params)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/handler.py", line 55, in create_storage
+    return storage_cls(**options)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/whitenoise/storage.py", line 64, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 460, in __init__
+    self.hashed_files, self.manifest_hash = self.load_manifest()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 470, in load_manifest
+    content = self.read_manifest()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 464, in read_manifest
+    with self.manifest_storage.open(self.manifest_name) as manifest:
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/base.py", line 22, in open
+    return self._open(name, mode)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/filesystem.py", line 68, in _open
+    return File(open(self.path(name), mode))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 39, in path
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+"GET /ru/admin/login/?next=/ru/admin/auth/user/ HTTP/1.1" 500 270179
+Internal Server Error: /ru/admin/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/handler.py", line 35, in __getitem__
+    return self._storages[alias]
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/templatetags/static.py", line 116, in render
+    url = self.url(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/templatetags/static.py", line 113, in url
+    return self.handle_simple(path)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/templatetags/static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/utils/functional.py", line 266, in inner
+    self._setup()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 537, in _setup
+    self._wrapped = storages[STATICFILES_STORAGE_ALIAS]
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/handler.py", line 43, in __getitem__
+    storage = self.create_storage(params)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/handler.py", line 55, in create_storage
+    return storage_cls(**options)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/whitenoise/storage.py", line 64, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 460, in __init__
+    self.hashed_files, self.manifest_hash = self.load_manifest()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 470, in load_manifest
+    content = self.read_manifest()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 464, in read_manifest
+    with self.manifest_storage.open(self.manifest_name) as manifest:
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/base.py", line 22, in open
+    return self._open(name, mode)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/filesystem.py", line 68, in _open
+    return File(open(self.path(name), mode))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 39, in path
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+"GET /ru/admin/login/?next=/ru/admin/auth/user/ HTTP/1.1" 500 270316
+Internal Server Error: /ru/admin/login/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/handler.py", line 35, in __getitem__
+    return self._storages[alias]
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/templatetags/static.py", line 116, in render
+    url = self.url(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/templatetags/static.py", line 113, in url
+    return self.handle_simple(path)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/templatetags/static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/utils/functional.py", line 266, in inner
+    self._setup()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 537, in _setup
+    self._wrapped = storages[STATICFILES_STORAGE_ALIAS]
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/handler.py", line 43, in __getitem__
+    storage = self.create_storage(params)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/handler.py", line 55, in create_storage
+    return storage_cls(**options)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/whitenoise/storage.py", line 64, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 460, in __init__
+    self.hashed_files, self.manifest_hash = self.load_manifest()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 470, in load_manifest
+    content = self.read_manifest()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 464, in read_manifest
+    with self.manifest_storage.open(self.manifest_name) as manifest:
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/base.py", line 22, in open
+    return self._open(name, mode)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/files/storage/filesystem.py", line 68, in _open
+    return File(open(self.path(name), mode))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 39, in path
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+"GET /ru/admin/login/?next=/ru/admin/ HTTP/1.1" 500 269417

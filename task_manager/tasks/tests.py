@@ -4,8 +4,8 @@ from django.core.management import call_command
 from django.contrib.auth.models import User
 from task_manager.statuses.models import Status
 from task_manager.labels.models import Label
-from tests.test_crud_classes import ObjectCRUDCase
-from tests.test_form_classes import ObjectFormTest
+from test_mixins.test_crud_classes import ObjectCRUDCase
+from test_mixins.test_form_classes import ObjectFormTest
 from django.urls import reverse_lazy
 from .forms import TaskCreateForm
 from django.contrib.messages import get_messages

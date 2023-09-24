@@ -7,8 +7,8 @@ from django.utils.translation import activate
 from task_manager.tasks.models import Task
 from task_manager.statuses.models import Status
 from django.urls import reverse_lazy
-from tests.test_crud_classes import ObjectCRUDCase
-from tests.test_form_classes import ObjectFormTest
+from test_mixins.test_crud_classes import ObjectCRUDCase
+from test_mixins.test_form_classes import ObjectFormTest
 from .forms import LabelCreateForm
 # Create your tests here.
 
