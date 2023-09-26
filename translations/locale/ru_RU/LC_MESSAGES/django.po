@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 13:39+0000\n"
+"POT-Creation-Date: 2023-09-26 13:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,43 +70,33 @@ msgstr "Только свои задачи"
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/filters.py:18 task_manager/templates/tasks/index.html:28
+#: task_manager/tasks/filters.py:18 task_manager/tasks/models.py:26
+#: task_manager/templates/tasks/index.html:28
 #: task_manager/templates/tasks/task_single.html:27
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/filters.py:19 task_manager/templates/labels/index.html:8
+#: task_manager/tasks/filters.py:19 task_manager/tasks/models.py:27
+#: task_manager/templates/labels/index.html:8
 msgid "Labels"
 msgstr "Метки"
 
 #: task_manager/tasks/models.py:12
-#, fuzzy
-#| msgid "Description"
-msgid "description"
+msgid "Description"
 msgstr "Описание"
 
 #: task_manager/tasks/models.py:13
-#, fuzzy
-#| msgid "Status"
 msgid "status"
 msgstr "Статус"
 
 #: task_manager/tasks/models.py:19
-msgid "creator"
+msgid "Creator"
 msgstr "Создатель"
-
-#: task_manager/tasks/models.py:26
-msgid "executor"
-msgstr "Исполнитель"
-
-#: task_manager/tasks/models.py:27
-msgid "labels"
-msgstr "Метки"
 
 #: task_manager/tasks/models.py:28
 #, fuzzy
 #| msgid "Create"
-msgid "created_at"
+msgid "Created_at"
 msgstr "Создать"
 
 #: task_manager/tasks/tests.py:97 task_manager/tasks/views.py:58
@@ -368,6 +358,12 @@ msgstr "Вы залогинены"
 #: task_manager/views.py:37
 msgid "You have been logged out"
 msgstr "Вы разлогинены"
+
+#~ msgid "executor"
+#~ msgstr "Исполнитель"
+
+#~ msgid "labels"
+#~ msgstr "Метки"
 
 #~ msgid "Surname"
 #~ msgstr "Фамилия"
