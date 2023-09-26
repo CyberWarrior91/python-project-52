@@ -3,22 +3,29 @@ from task_manager.statuses.models import Status
 from django.contrib.auth.models import User
 from task_manager.labels.models import Label
 from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
 
 class Task(models.Model):
-    name = models.CharField(max_length=30)
-    description = models.TextField(blank=True)
-    status = models.ForeignKey(Status, on_delete=models.PROTECT)
+    name = models.CharField(_('Name'), max_length=30)
+    description = models.TextField(_('description'), blank=True)
+    status = models.ForeignKey(Status, on_delete=models.PROTECT, verbose_name=_('status'))
     creator = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
         related_name='+',
-        blank=True
+        blank=True,
+        verbose_name=_('creator')
     )
-    executor = models.ForeignKey(User, on_delete=models.PROTECT, blank=True, null=True)
-    labels = models.ManyToManyField(Label, blank=True)
-    created_at = models.DateTimeField(default=timezone.now)
+    executor = models.ForeignKey(
+        User, 
+        on_delete=models.PROTECT, 
+        blank=True, 
+        null=True,
+        verbose_name=_('executor'))
+    labels = models.ManyToManyField(Label, blank=True, verbose_name=_('labels'))
+    created_at = models.DateTimeField(_("created_at"), default=timezone.now)
 
     def __str__(self):
         return self.name
