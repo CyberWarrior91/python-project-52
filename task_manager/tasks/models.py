@@ -19,9 +19,9 @@ class Task(models.Model):
         verbose_name=_('creator')
     )
     executor = models.ForeignKey(
-        User, 
-        on_delete=models.PROTECT, 
-        blank=True, 
+        User,
+        on_delete=models.PROTECT,
+        blank=True,
         null=True,
         verbose_name=_('executor'))
     labels = models.ManyToManyField(Label, blank=True, verbose_name=_('labels'))
