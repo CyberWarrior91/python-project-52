@@ -20,7 +20,7 @@ class StatusList(UserLoginMixin, ListView):
 class StatusCreateView(ObjectCreateView):
     success_url = '/statuses/'
     form = StatusCreateForm
-    create_url = 'statuses/status_create.html'
+    template_name = 'statuses/status_create.html'
     success_message = _('The status was created successfully')
 
 

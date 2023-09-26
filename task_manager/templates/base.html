@@ -53,7 +53,12 @@
         {% endif %}
       </div>
     </nav>
+    {% if messages %}
     <div class="container wrapper flex-grow-1">
+      <div class="alert alert-{{ message.tags }}">
+        {% bootstrap_messages %}
+      </div>
+    {% endif %}
 
        <div id="title">
         {% block title %}{% endblock %}

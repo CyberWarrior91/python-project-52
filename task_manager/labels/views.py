@@ -20,7 +20,7 @@ class LabelList(UserLoginMixin, ListView):
 class LabelCreateView(ObjectCreateView):
     success_url = '/labels/'
     form = LabelCreateForm
-    create_url = 'labels/label_create.html'
+    template_name = 'labels/label_create.html'
     success_message = _('The label was created successfully')
 
 

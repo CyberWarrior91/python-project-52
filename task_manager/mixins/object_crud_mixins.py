@@ -8,12 +8,12 @@ from django.views import View
 class ObjectCreateView(View):
     success_url = None
     form = None
-    create_url = None
+    template_name = None
     success_message = None
 
     def get(self, request, *args, **kwargs):
         form = self.form
-        return render(request, self.create_url, {'form': form})
+        return render(request, self.template_name, {'form': form})
 
     def post(self, request, *args, **kwargs):
         form = self.form(request.POST)
@@ -22,7 +22,7 @@ class ObjectCreateView(View):
             messages.success(request, self.success_message)
             return redirect(self.success_url)
         else:
-            return render(request, self.create_url, {'form': form})
+            return render(request, self.template_name, {'form': form})
 
 
 class ObjectUpdateView(UserLoginMixin, View):

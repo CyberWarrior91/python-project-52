@@ -26,7 +26,7 @@ class TaskList(UserLoginMixin, FilterView):
 class TaskCreateView(ObjectCreateView):
     success_url = '/tasks/'
     form = TaskCreateForm
-    create_url = 'tasks/task_create.html'
+    template_name = 'tasks/task_create.html'
     success_message = _('The task was created successfully')
 
     def post(self, request, *args, **kwargs):
