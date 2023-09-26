@@ -20,7 +20,7 @@ from task_manager import views
 from django.conf.urls.i18n import i18n_patterns
 
 
-urlpatterns = i18n_patterns(
+urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomePageView.as_view(), name='main'),
     path('users/', include('task_manager.users.urls'), name='users'),
@@ -29,4 +29,4 @@ urlpatterns = i18n_patterns(
     path('statuses/', include('task_manager.statuses.urls'), name='statuses'),
     path('labels/', include('task_manager.labels.urls'), name='labels'),
     path('tasks/', include('task_manager.tasks.urls'), name='tasks'),
-)
+]
