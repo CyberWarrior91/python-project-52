@@ -67,7 +67,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -225,5 +224,3 @@ ROLLBAR = {
 CSRF = os.getenv('HTTPS', None)
 
 CSRF_TRUSTED_ORIGINS = ['https://python-project-52-production-882e.up.railway.app']
-
-
