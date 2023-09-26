@@ -10,6 +10,7 @@ from django.urls import reverse_lazy
 from .forms import TaskCreateForm
 from django.contrib.messages import get_messages
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import activate
 # Create your tests here.
 
 
@@ -29,6 +30,7 @@ class TaskTestCase(TestCase, ObjectCRUDCase):
 
     def setUp(self):
         # Load fixtures
+        activate('en')
         call_command('loaddata', *self.fixtures)
         self.client = Client()
 
@@ -39,7 +41,7 @@ class TaskTestCase(TestCase, ObjectCRUDCase):
         test_user = User.objects.get(username='Mary')
         self.client.force_login(test_user)
         response = self.client.get(
-            '/en/tasks/',
+            '/tasks/',
             {
                 'status': 1,
                 'executor': 5,

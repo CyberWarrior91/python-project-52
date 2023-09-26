@@ -18,7 +18,7 @@ class UserTestCase(TestCase, ObjectCRUDCase):
         'fixtures/userdata.json',
         'fixtures/statusdata.json',
     ]
-    wrong_user_message = 'You have no rights to modify another user.'
+    wrong_user_message = 'У вас нет прав для изменения другого пользователя.'
     index_page = 'users_index'
     model = User
     pk = 1
@@ -62,7 +62,7 @@ class UserTestCase(TestCase, ObjectCRUDCase):
         Testing whether the error message shows up and redirect happens
         when trying to change other user's data
         """
-        response_change = self.client.get('/en/users/2/update', follow=True)
+        response_change = self.client.get('/users/2/update', follow=True)
         self.assertEqual(response_change.status_code, 200)
         change_messages = list(get_messages(response_change.wsgi_request))
         self.assertEqual(len(change_messages), 1)
@@ -71,7 +71,7 @@ class UserTestCase(TestCase, ObjectCRUDCase):
         """
         Testing the same behaviour for removal of other user
         """
-        response_delete = self.client.get('/en/users/2/delete', follow=True)
+        response_delete = self.client.get('/users/2/delete', follow=True)
         self.assertEqual(response_delete.status_code, 200)
         delete_messages = list(get_messages(response_delete.wsgi_request))
         self.assertEqual(str(delete_messages[0]), self.wrong_user_message)
@@ -101,7 +101,7 @@ class UserTestCase(TestCase, ObjectCRUDCase):
         self.assertEqual(len(messages), 1)
         self.assertEqual(
             str(messages[0]),
-            "Unable to delete the user, because it's being used"
+            "Невозможно удалить пользователя, потому что он используется"
         )
 
 

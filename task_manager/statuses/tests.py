@@ -49,7 +49,7 @@ class StatusTestCase(TestCase, ObjectCRUDCase):
         self.assertEqual(len(messages), 1)
         self.assertEqual(
             str(messages[0]),
-            "Cannot delete the status, because it's being used"
+            "Невозможно удалить статус, потому что он используется"
         )
 
 

@@ -28,13 +28,14 @@ class LabelTestCase(TestCase, ObjectCRUDCase):
     def setUp(self):
         # Load fixtures
         call_command('loaddata', *self.fixtures)
+        activate('en')
 
     def test_delete_label_failed(self):
         """
         Testing whether a label with tasks linked
         can be removed
         """
-        activate('en')
+
         user = User.objects.get(pk=1)
         self.client.force_login(user)
         label = Label.objects.get(pk=2)
@@ -54,7 +55,7 @@ class LabelTestCase(TestCase, ObjectCRUDCase):
         self.assertEqual(len(messages), 1)
         self.assertEqual(
             str(messages[0]),
-            "Cannot delete the label, because it's being used"
+            "Невозможно удалить метку, потому что она используется"
         )
 
 
