@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-26 13:57+0000\n"
+"POT-Creation-Date: 2023-09-27 10:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: task_manager/form_class.py:16 task_manager/form_class.py:24
 #: task_manager/labels/forms.py:14 task_manager/statuses/forms.py:12
-#: task_manager/tasks/models.py:11 task_manager/templates/labels/index.html:16
+#: task_manager/templates/labels/index.html:16
 #: task_manager/templates/statuses/index.html:16
 #: task_manager/templates/tasks/index.html:25
 msgid "Name"
@@ -70,48 +70,58 @@ msgstr "Только свои задачи"
 msgid "Status"
 msgstr "Статус"
 
-#: task_manager/tasks/filters.py:18 task_manager/tasks/models.py:26
-#: task_manager/templates/tasks/index.html:28
+#: task_manager/tasks/filters.py:18 task_manager/templates/tasks/index.html:28
 #: task_manager/templates/tasks/task_single.html:27
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/filters.py:19 task_manager/tasks/models.py:27
-#: task_manager/templates/labels/index.html:8
+#: task_manager/tasks/filters.py:19 task_manager/templates/labels/index.html:8
 msgid "Labels"
 msgstr "Метки"
 
+#: task_manager/tasks/models.py:11
+msgid "name"
+msgstr "имя"
+
 #: task_manager/tasks/models.py:12
-msgid "Description"
-msgstr "Описание"
+msgid "description"
+msgstr "описание"
 
 #: task_manager/tasks/models.py:13
 msgid "status"
-msgstr "Статус"
+msgstr "статус"
 
 #: task_manager/tasks/models.py:19
-msgid "Creator"
-msgstr "Создатель"
+msgid "creator"
+msgstr "автор"
+
+#: task_manager/tasks/models.py:26
+msgid "executor"
+msgstr "исполнитель"
+
+#: task_manager/tasks/models.py:27
+msgid "labels"
+msgstr "метки"
 
 #: task_manager/tasks/models.py:28
 #, fuzzy
 #| msgid "Create"
-msgid "Created_at"
+msgid "created_at"
 msgstr "Создать"
 
-#: task_manager/tasks/tests.py:97 task_manager/tasks/views.py:58
+#: task_manager/tasks/tests.py:97 task_manager/tasks/views.py:57
 msgid "Only the author of the task can delete it"
 msgstr "Задачу может удалить только ее автор"
 
-#: task_manager/tasks/views.py:30
+#: task_manager/tasks/views.py:31
 msgid "The task was created successfully"
 msgstr "Задача успешно создана"
 
-#: task_manager/tasks/views.py:50
+#: task_manager/tasks/views.py:49
 msgid "The task has been updated successfully"
 msgstr "Задача успешно изменена"
 
-#: task_manager/tasks/views.py:57
+#: task_manager/tasks/views.py:56
 msgid "The task has been deleted successfully"
 msgstr "Задача успешно удалена"
 
@@ -358,15 +368,6 @@ msgstr "Вы залогинены"
 #: task_manager/views.py:37
 msgid "You have been logged out"
 msgstr "Вы разлогинены"
-
-#~ msgid "executor"
-#~ msgstr "Исполнитель"
-
-#~ msgid "labels"
-#~ msgstr "Метки"
-
-#~ msgid "Surname"
-#~ msgstr "Фамилия"
 
 #~ msgid "Your password should contain at least 3 symbols."
 #~ msgstr "Ваш пароль должен содержать как минимум 3 символа."
