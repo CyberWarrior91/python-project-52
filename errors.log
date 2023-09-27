@@ -10393,3 +10393,108 @@ Traceback (most recent call last):
     raise TypeError(f'{funcname}() argument must be str, bytes, or '
 TypeError: join() argument must be str, bytes, or os.PathLike object, not 'NoneType'
 "GET /tasks/create/ HTTP/1.1" 500 134066
+Internal Server Error: /tasks/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/tasks/views.py", line 39, in post
+    return super(TaskCreateView, self).form_valid(form)
+AttributeError: 'super' object has no attribute 'form_valid'
+"POST /tasks/create/ HTTP/1.1" 500 75519
+Internal Server Error: /tasks/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: tasks_task.creator_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/vladislav94/python-project-52/task_manager/tasks/views.py", line 39, in form_valid
+    return super(TaskCreateView, self).form_valid(form)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/edit.py", line 135, in form_valid
+    self.object = form.save()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/forms/models.py", line 542, in save
+    self.instance.save()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/models/base.py", line 814, in save
+    self.save_base(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/models/base.py", line 877, in save_base
+    updated = self._save_table(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/models/base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/models/base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/models/query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: tasks_task.creator_id
+"POST /tasks/create/ HTTP/1.1" 500 175457
+Internal Server Error: /tasks/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/edit.py", line 184, in post
+    return super().post(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/edit.py", line 153, in post
+    return self.form_valid(form)
+  File "/home/vladislav94/python-project-52/task_manager/tasks/views.py", line 39, in form_valid
+    return super(TaskCreateView, self).form_valid(form)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/edit.py", line 136, in form_valid
+    return super().form_valid(form)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/views/generic/edit.py", line 65, in form_valid
+    return HttpResponseRedirect(self.get_success_url())
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/http/response.py", line 616, in __init__
+    self["Location"] = iri_to_uri(redirect_to)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/utils/encoding.py", line 137, in iri_to_uri
+    iri = str(iri)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/utils/functional.py", line 155, in __text_cast
+    return func(*self.__args, **self.__kw)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'tasks' not found. 'tasks' is not a valid view function or pattern name.
+"POST /tasks/create/ HTTP/1.1" 500 115692
