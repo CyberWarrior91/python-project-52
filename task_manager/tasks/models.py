@@ -10,7 +10,7 @@ from django.utils.translation import gettext_lazy as _
 class Task(models.Model):
     name = models.CharField(_('name'), max_length=30)
     description = models.TextField(_('description'), blank=True)
-    status = models.ForeignKey(Status, on_delete=models.PROTECT, verbose_name=_('status'))
+    status = models.ForeignKey(Status, on_delete=models.PROTECT, verbose_name=_('tatus'))
     creator = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
