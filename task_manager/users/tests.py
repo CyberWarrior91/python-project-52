@@ -87,9 +87,9 @@ class UserTestCase(TestCase, ObjectCRUDCase):
             name='test',
             status=Status.objects.get(pk=3),
             creator=user,
-            executor=user
+            executor=user,
         )
-        user.task_set.add(task)
+        user.executed_tasks.add(task)
         self.client.force_login(user)
         response = self.client.post(
             reverse_lazy('user_delete',

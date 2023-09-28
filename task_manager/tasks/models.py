@@ -14,13 +14,14 @@ class Task(models.Model):
     creator = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
-        related_name='creator',
+        related_name='created_tasks',
         blank=True,
         verbose_name=_('creator')
     )
     executor = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
+        related_name='executed_tasks',
         blank=True,
         null=True,
         verbose_name=_('executor'))
