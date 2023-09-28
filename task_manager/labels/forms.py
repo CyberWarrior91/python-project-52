@@ -1,15 +1,9 @@
 from .models import Label
-from task_manager.form_class import ObjectCreateForm
-from django.utils.translation import gettext_lazy as _
+from django.forms import ModelForm
 
 
-class LabelCreateForm(ObjectCreateForm):
-
-    model = Label
+class LabelCreateForm(ModelForm):
 
     class Meta:
         model = Label
         fields = ['name']
-        labels = {
-            'name': _('Name'),
-        }

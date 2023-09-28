@@ -14,7 +14,7 @@ class Task(models.Model):
     creator = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
-        related_name='+',
+        related_name='creator',
         blank=True,
         verbose_name=_('creator')
     )
