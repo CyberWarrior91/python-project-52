@@ -10498,3 +10498,18 @@ Traceback (most recent call last):
     raise NoReverseMatch(msg)
 django.urls.exceptions.NoReverseMatch: Reverse for 'tasks' not found. 'tasks' is not a valid view function or pattern name.
 "POST /tasks/create/ HTTP/1.1" 500 115692
+Internal Server Error: /labels/2/delete/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/contrib/auth/mixins.py", line 73, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/fastapi-project-EYnjXjYa-py3.10/lib/python3.10/site-packages/django/views/generic/base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/vladislav94/python-project-52/task_manager/mixins/object_crud_mixins.py", line 68, in post
+    object_tasks = self.object.task_set.all()
+AttributeError: 'Label' object has no attribute 'task_set'

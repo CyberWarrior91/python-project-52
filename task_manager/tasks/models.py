@@ -24,8 +24,13 @@ class Task(models.Model):
         related_name='executed_tasks',
         blank=True,
         null=True,
-        verbose_name=_('executor'))
-    labels = models.ManyToManyField(Label, blank=True, verbose_name=_('labels'))
+        verbose_name=_('executor')
+    )
+    labels = models.ManyToManyField(
+        Label,
+        blank=True,
+        verbose_name=_('labels')
+    )
     created_at = models.DateTimeField(_("created_at"), default=timezone.now)
 
     def __str__(self):

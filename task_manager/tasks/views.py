@@ -24,7 +24,7 @@ class TaskList(UserLoginMixin, FilterView):
     filterset_class = TaskFilter
 
 
-class TaskCreateView(CreateView):
+class TaskCreateView(UserLoginMixin, CreateView):
     model = Task
     form_class = TaskCreateForm
     template_name = 'tasks/task_create.html'
