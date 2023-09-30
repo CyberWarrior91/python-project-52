@@ -6,10 +6,10 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 class Label(models.Model):
     name = models.CharField(
-        _('Name'), 
+        _('Name'),
         max_length=30,
-        blank=False, 
-        null=False, 
+        blank=False,
+        null=False,
         unique=True
     )
     created_at = models.DateTimeField(_("created_at"), default=timezone.now)
