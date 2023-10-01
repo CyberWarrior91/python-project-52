@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'task_manager',
-    'bootstrap4',
     'django_extensions',
     'task_manager.users',
     'task_manager.tasks',
@@ -63,6 +62,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'django_filters',
+    'bootstrap4',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -143,8 +144,6 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
 
 LANGUAGES = [
@@ -224,3 +223,16 @@ ROLLBAR = {
 CSRF = os.getenv('HTTPS', None)
 
 CSRF_TRUSTED_ORIGINS = ['https://python-project-52-production-882e.up.railway.app']
+
+BOOTSTRAP5 = {
+
+    # The complete URL to the Bootstrap CSS file
+    # Note that a URL can be either a string,
+    # e.g. "https://stackpath.bootstrapcdn.com/bootstrap/5.1.1/css/bootstrap.min.css",
+    # or a dict like the default value below.
+    "css_url": {
+        "href": "https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css",
+        "integrity": "sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB",
+        "crossorigin": "anonymous",
+    },
+}

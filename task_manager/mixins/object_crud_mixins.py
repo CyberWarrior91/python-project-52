@@ -65,7 +65,7 @@ class ObjectDeleteView(UserLoginMixin, DeleteView):
     def post(self, request, *args, **kwargs):
         object_id = kwargs.get('pk')
         self.object = get_object_or_404(self.model, pk=object_id)
-        object_tasks = self.object.task_set.all()
+        object_tasks = self.object.executed_tasks.all()
         if object_tasks:
             messages.error(self.request, self.error_message, extra_tags='danger')
             return redirect(self.success_url)
