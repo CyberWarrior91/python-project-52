@@ -10801,3 +10801,78 @@ Traceback (most recent call last):
   File "/home/vladislav94/python-project-52/task_manager/mixins/object_crud_mixins.py", line 68, in post
     object_tasks = self.object.creator.all()
 AttributeError: 'Status' object has no attribute 'creator'
+Internal Server Error: /tasks/create/
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 1026, in find_library
+    return parser.libraries[name]
+KeyError: 'django_bootstrap5'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 1088, in load
+    lib = find_library(parser, name)
+  File "/home/vladislav94/.cache/pypoetry/virtualenvs/hexlet-code-11EwOKK1-py3.10/lib/python3.10/site-packages/django/template/defaulttags.py", line 1028, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'django_bootstrap5' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+bootstrap4
+bootstrap5
+cache
+crispy_forms_field
+crispy_forms_filters
+crispy_forms_tags
+crispy_forms_utils
+debugger_tags
+highlighting
+i18n
+indent_text
+l10n
+log
+static
+syntax_color
+tz
+widont
+"GET /tasks/create/ HTTP/1.1" 500 197407
