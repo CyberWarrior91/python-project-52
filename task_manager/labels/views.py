@@ -44,6 +44,7 @@ class LabelDeleteView(ObjectDeleteView):
 
     def post(self, request, *args, **kwargs):
         label_id = kwargs.get('pk')
+        self.object = Label.objects.get(pk=label_id)
         labeled_tasks = Task.objects.filter(tasklabel__label_id=label_id)
         if labeled_tasks:
             messages.error(self.request, self.error_message, extra_tags='danger')
@@ -52,3 +53,8 @@ class LabelDeleteView(ObjectDeleteView):
             form = self.get_form()
             if form.is_valid():
                 return self.form_valid(form)
+
+    def form_valid(self, form):
+        self.object.delete()
+        messages.success(self.request, self.success_message)
+        return redirect(self.success_url)
