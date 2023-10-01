@@ -26,12 +26,19 @@ class Task(models.Model):
         null=True,
         verbose_name=_('executor')
     )
+    created_at = models.DateTimeField(_("created_at"), default=timezone.now)
     labels = models.ManyToManyField(
         Label,
+        through='TaskLabel',
+        related_name='labels',
+        verbose_name=_('labels'),
         blank=True,
-        verbose_name=_('labels')
     )
-    created_at = models.DateTimeField(_("created_at"), default=timezone.now)
 
     def __str__(self):
         return self.name
+
+
+class TaskLabel(models.Model):
+    task = models.ForeignKey(Task, on_delete=models.CASCADE)
+    label = models.ForeignKey(Label, on_delete=models.CASCADE)

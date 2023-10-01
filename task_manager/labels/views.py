@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from .models import Label
 from django.views.generic import ListView
 from .forms import LabelCreateForm
@@ -7,7 +8,9 @@ from task_manager.mixins.object_crud_mixins import (
     ObjectUpdateView,
     ObjectDeleteView
 )
+from django.contrib import messages
 from task_manager.mixins.login_mixin import UserLoginMixin
+from task_manager.tasks.models import Task
 # Create your views here.
 
 
@@ -38,3 +41,14 @@ class LabelDeleteView(ObjectDeleteView):
     model = Label
     error_message = _("Cannot delete the label, because it's being used")
     success_message = _('The label has been deleted successfully')
+
+    def post(self, request, *args, **kwargs):
+        label_id = kwargs.get('pk')
+        labeled_tasks = Task.objects.filter(tasklabel__label_id=label_id)
+        if labeled_tasks:
+            messages.error(self.request, self.error_message, extra_tags='danger')
+            return redirect(self.success_url)
+        else:
+            form = self.get_form()
+            if form.is_valid():
+                return self.form_valid(form)
