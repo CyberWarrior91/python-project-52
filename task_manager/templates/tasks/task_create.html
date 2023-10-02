@@ -5,16 +5,28 @@
 {% block content %}
 <div class="container  max-width">
     <h1 class="my-4 text-center">{% trans 'Create task' %}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-
-        <div class="form-group text-center">
-            <input class="btn btn-primary" type="submit" value="{% trans 'Create' %}">
-        </div>
-    </form>
-</div>
-<style>
+    <div class="d-flex justify-content-center">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.name|as_crispy_field }}
+            </div>
+            <div class="form-group">
+                {{ form.description|as_crispy_field }}
+            </div>
+            <div class="form-group">
+                {{ form.executor|as_crispy_field }}
+            </div>
+            <div class="form-group">
+                {{ form.status|as_crispy_field }}
+            </div>
+            <div class="form-group">
+                {{ form.labels|as_crispy_field }}
+            </div>
+            <button type="submit" class="btn btn-primary">{% trans 'Create' %}</button>
+        </form>
+        {% endblock %}
+    </div>
     .max-width {
       max-width: 700px;
     }
@@ -22,4 +34,4 @@
         display: none;
     }
   </style>
-{% endblock %}
+
