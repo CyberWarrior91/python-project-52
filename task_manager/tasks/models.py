@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from task_manager.labels.models import Label
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth import get_user_model
 # Create your models here.
 
 
@@ -19,7 +20,7 @@ class Task(models.Model):
         verbose_name=_('author')
     )
     executor = models.ForeignKey(
-        User,
+        get_user_model(),
         on_delete=models.PROTECT,
         related_name='executor',
         blank=True,
