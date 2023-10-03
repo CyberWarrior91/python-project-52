@@ -6,7 +6,7 @@
     "name": "1 task",
     "description": "sdadweq",
     "status": 3,
-    "creator": 11,
+    "author": 11,
     "executor": 6,
     "created_at": "2023-08-18T16:48:37.618Z",
     "labels": [
@@ -21,8 +21,8 @@
     "name": "3 task",
     "description": "dadss",
     "status": 1,
-    "creator": 11,
-    "executor": 5,
+    "author": 11,
+    "executor": 1,
     "created_at": "2023-08-19T08:00:22.462Z",
     "labels": [
       2
@@ -36,7 +36,7 @@
     "name": "Tyson task",
     "description": "something",
     "status": 3,
-    "creator": 6,
+    "author": 6,
     "executor": 4,
     "created_at": "2023-08-22T15:20:20.679Z",
     "labels": [
@@ -51,12 +51,11 @@
     "name": "test task 3",
     "description": "",
     "status": 1,
-    "creator": 11,
-    "executor": 5,
+    "author": 11,
+    "executor": 1,
     "created_at": "2023-08-25T09:45:26.501Z",
     "labels": [
-      2,
-      3
+      2
     ]
   }
 },
@@ -67,7 +66,7 @@
     "name": "create something",
     "description": "",
     "status": 4,
-    "creator": 11,
+    "author": 11,
     "executor": 4,
     "created_at": "2023-08-25T09:45:46.500Z",
     "labels": [

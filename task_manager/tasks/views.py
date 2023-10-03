@@ -32,7 +32,7 @@ class TaskCreateView(UserLoginMixin, CreateView):
 
     def form_valid(self, form):
         current_user = self.request.user
-        form.instance.creator = current_user
+        form.instance.author = current_user
         messages.success(request=self.request,
                          message=self.success_message)
         return super(TaskCreateView, self).form_valid(form)
@@ -60,7 +60,7 @@ class TaskDeleteView(ObjectDeleteView):
         task_id = kwargs.get('pk')
         self.object = get_object_or_404(self.model, pk=task_id)
         current_user = request.user
-        if current_user != self.object.creator:
+        if current_user != self.object.author:
             messages.error(self.request, self.error_message, extra_tags='danger')
             return redirect(self.success_url)
         else:

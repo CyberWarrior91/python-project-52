@@ -86,14 +86,15 @@ class UserTestCase(TestCase, ObjectCRUDCase):
         task = Task.objects.create(
             name='test',
             status=Status.objects.get(pk=3),
-            creator=user,
+            author=user,
             executor=user,
         )
         user.executor.add(task)
         self.client.force_login(user)
         response = self.client.post(
-            reverse_lazy('user_delete',
-                         kwargs={'pk': 1}),
+            reverse_lazy(
+                'user_delete',
+                kwargs={'pk': 2}),
             follow=True
         )
         self.assertRedirects(response, reverse_lazy('users_index'))

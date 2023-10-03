@@ -44,7 +44,7 @@ class TaskTestCase(TestCase, ObjectCRUDCase):
             '/tasks/',
             {
                 'status': 1,
-                'executor': 5,
+                'executor': 1,
                 'labels': 2,
                 'show_my_tasks': True
             }
@@ -56,7 +56,7 @@ class TaskTestCase(TestCase, ObjectCRUDCase):
         task = self.model.objects.create(
             name='first_task',
             description='test desc',
-            creator=User.objects.get(first_name='Mary'),
+            author=User.objects.get(first_name='Mary'),
             status=Status.objects.create(pk=99)
         )
         task.labels.add(Label.objects.get(pk=2), Label.objects.get(pk=3))
@@ -64,7 +64,7 @@ class TaskTestCase(TestCase, ObjectCRUDCase):
         self.assertTrue(
             self.model.objects.filter(
                 name='first_task', description='test desc',
-                creator='11', labels=(2, 3), status=99).exists()
+                author='11', labels=(2, 3), status=99).exists()
         )
 
     def test_view_task(self):

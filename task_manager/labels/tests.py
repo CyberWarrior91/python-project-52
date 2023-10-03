@@ -41,7 +41,7 @@ class LabelTestCase(TestCase, ObjectCRUDCase):
         label = Label.objects.get(pk=2)
         test_task = Task.objects.create(
             name='test',
-            creator=user,
+            author=user,
             status=Status.objects.create(name='test status'),
         )
         test_task.labels.add(label)

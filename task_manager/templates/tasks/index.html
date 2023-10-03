@@ -37,7 +37,7 @@
             <td>{{ task.id }}</td>
             <td><a href="{% url 'task_single' task.id %}">{{ task.name }}</a></td>
             <td>{{ task.status }}</td>
-            <td>{{ task.creator }}</td>
+            <td>{{ task.author }}</td>
             {% if task.executor %}
             <td>{{ task.executor }}</td>
             {% else %}

@@ -38,7 +38,7 @@ class StatusTestCase(TestCase, ObjectCRUDCase):
         user = User.objects.get(pk=1)
         self.client.force_login(user)
         status = self.model.objects.get(pk=1)
-        Task.objects.create(name='test', creator=user, status=status)
+        Task.objects.create(name='test', author=user, status=status)
         response = self.client.post(
             reverse_lazy('status_delete',
                          kwargs={'pk': 1}),

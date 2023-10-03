@@ -25,5 +25,5 @@ class TaskFilter(FilterSet):
     def filter_show_my_tasks(self, queryset, name, value):
         if value:
             user = self.request.user
-            return queryset.filter(creator=user)
+            return queryset.filter(author=user)
         return queryset

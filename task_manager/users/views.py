@@ -80,7 +80,7 @@ class UserDeleteView(ObjectDeleteView):
         user_id = request.user.pk
         form = self.get_form()
         self.object = get_object_or_404(self.model, pk=user_id)
-        user_tasks = Task.objects.filter(Q(creator=self.object) | Q(executor=self.object))
+        user_tasks = Task.objects.filter(Q(author=self.object) | Q(executor=self.object))
         if user_tasks:
             messages.error(
                 request,

@@ -11,12 +11,12 @@ class Task(models.Model):
     name = models.CharField(_('name'), max_length=30)
     description = models.TextField(_('description'), blank=True)
     status = models.ForeignKey(Status, on_delete=models.PROTECT, verbose_name=_('status'))
-    creator = models.ForeignKey(
+    author = models.ForeignKey(
         User,
         on_delete=models.PROTECT,
-        related_name='creator',
+        related_name='author',
         blank=True,
-        verbose_name=_('creator')
+        verbose_name=_('author')
     )
     executor = models.ForeignKey(
         User,
@@ -34,6 +34,9 @@ class Task(models.Model):
         verbose_name=_('labels'),
         blank=True,
     )
+
+    class Meta:
+        ordering = ['id']
 
     def __str__(self):
         return self.name
