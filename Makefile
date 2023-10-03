@@ -29,13 +29,13 @@ lint:
 	@poetry run flake8 task_manager
 .PHONY: test
 test:
-	@poetry run coverage run --source='.' manage.py test
+	@poetry run coverage run --source='.' manage.py test task_manager
 	@poetry run coverage xml
 .PHONY: syncdb
 syncdb:
 	@$(MANAGE) syncdb --noinput
 
-.PHONY: start	
+.PHONY: start
 start:
 	@poetry install
 	@$(MANAGE) makemigrations
