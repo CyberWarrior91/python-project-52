@@ -182,7 +182,7 @@ LOGGING = {
 }
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'translations', 'locale'),
+    os.path.join(BASE_DIR, 'locale'),
 )
 
 SHELL_PLUS_PRINT_SQL = True
