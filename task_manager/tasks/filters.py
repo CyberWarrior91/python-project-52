@@ -12,6 +12,7 @@ class TaskFilter(FilterSet):
         label=_('Show only my tasks'),
         method='filter_show_my_tasks',
         widget=forms.CheckboxInput,
+        label_suffix=""
     )
 
     status = ModelChoiceFilter(label=_('Status'), queryset=Status.objects.all())

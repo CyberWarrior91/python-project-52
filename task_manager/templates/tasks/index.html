@@ -13,7 +13,12 @@
   <div class="flex-container">
     <div class="filter-form">
       <form method="get">
-        {{ filter.form.as_p }}
+        {% for field in filter.form %}
+            <div id="form-field-{{ forloop.counter0 }}">
+              {{ field.label_tag }}
+                  {{ field }}
+            </div>
+        {% endfor %}
         <button type="submit">{% trans 'Show' %}</button>
       </form>
     </div>
