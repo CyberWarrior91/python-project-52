@@ -1,7 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.forms import UserCreationForm
-from task_manager.form_class import apply_placeholders
 
 
 class NewUserForm(UserCreationForm):
@@ -20,7 +19,8 @@ class NewUserForm(UserCreationForm):
             'password2': _('Confirm Password'),
         }
 
-        apply_placeholders(self, placeholders)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['placeholder'] = placeholders.get(field_name, '')
 
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
