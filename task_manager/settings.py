@@ -201,7 +201,7 @@ LOGOUT_REDIRECT_URL = reverse_lazy('main')
 
 LOGIN_URL = reverse_lazy('login')
 
-AUTH_USER_MODEL = 'auth.User'
+AUTH_USER_MODEL = 'users.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -245,4 +245,4 @@ BOOTSTRAP5 = {
 
 STATIC_URL = 'static/'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

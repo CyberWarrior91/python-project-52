@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
-from django.contrib.auth.models import User
+from .models import User
 from .forms import NewUserForm, UserUpdateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _

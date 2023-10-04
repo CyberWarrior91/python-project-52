@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from .models import Task
 from django.core.management import call_command
-from django.contrib.auth.models import User
+from task_manager.users.models import User
 from task_manager.statuses.models import Status
 from task_manager.labels.models import Label
 from test_mixins.test_crud_classes import ObjectCRUDCase
@@ -50,7 +50,7 @@ class TaskTestCase(TestCase, ObjectCRUDCase):
             }
         )
         tasks = response.context['tasks']
-        self.assertEqual(len(tasks), 2)
+        self.assertEqual(len(tasks), 1)
 
     def test_create_object(self):
         task = self.model.objects.create(
@@ -64,7 +64,7 @@ class TaskTestCase(TestCase, ObjectCRUDCase):
         self.assertTrue(
             self.model.objects.filter(
                 name='first_task', description='test desc',
-                author='11', labels=(2, 3), status=99).exists()
+                author='2', labels=(2, 3), status=99).exists()
         )
 
     def test_view_task(self):

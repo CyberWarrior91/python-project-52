@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from .models import Status
-from django.contrib.auth.models import User
+from task_manager.users.models import User
 from task_manager.tasks.models import Task
 from django.core.management import call_command
 from django.urls import reverse_lazy

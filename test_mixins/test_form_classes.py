@@ -1,6 +1,3 @@
-from django.core.exceptions import ValidationError
-
-
 class ObjectFormTest():
     form = None
     correct_data = None

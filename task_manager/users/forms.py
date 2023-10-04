@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.forms import UserCreationForm
 from task_manager.form_class import apply_placeholders
@@ -26,7 +26,7 @@ class NewUserForm(UserCreationForm):
         self.fields['last_name'].required = True
 
     class Meta:
-        model = User
+        model = get_user_model()
         fields = ("first_name", "last_name", "username",
                   "password1", "password2")
 
@@ -35,7 +35,7 @@ class NewUserForm(UserCreationForm):
         Saves the form in db if valid
         :return: new user information
         """
-        user = super().save(commit=False)
+        user = super(NewUserForm, self).save(commit=False)
         user.first_name = self.cleaned_data.get('first_name')
         user.last_name = self.cleaned_data.get('last_name')
         user.username = self.cleaned_data.get('username')
