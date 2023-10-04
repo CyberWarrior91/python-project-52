@@ -2,11 +2,10 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
+{% block title %}<h1 class="my-4 text-center">{% trans 'Task view' %}</h1>{% endblock %}
+
 {% block content %}
 <div class="text-center">
-    <div class="mb-4">
-        <h1>{% trans 'Task view' %}</h1>
-    </div>
     <div class="card text-center">
         <div class="card-header color-green">
             <h4 class="card-title ">{{ task.name }}</h4>

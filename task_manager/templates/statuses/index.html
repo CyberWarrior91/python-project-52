@@ -1,11 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
 
+{% block title %}<h1 class="my-4 text-center">{% trans "Statuses" %}</h1>{% endblock %}
+
 {% block content %}
-
-
 <div class="container">
-  <h1 class="my-4 text-center">{% trans "Statuses" %}</h1>
   <div class="d-flex justify-content-center mt-3 mb-0">
     <a class="btn btn-success btn-md" href="{% url 'status_create' %}">{% trans "Create status" %}</a>
   </div>

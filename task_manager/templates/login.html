@@ -3,10 +3,10 @@
 {% load bootstrap5 %}
 
 
-
+{% block title %}<h1 class="my-4 text-center">{% trans "Login" %}</h1>{% endblock %}
 
 {% block content %}
-<h1 class="my-4 text-center">{% trans "Login" %}</h1>
+
 <div class="container max-width">
     <form method="post">
       {% csrf_token %}
