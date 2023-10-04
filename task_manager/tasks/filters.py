@@ -26,7 +26,7 @@ class TaskFilter(FilterSet):
         label_suffix=""
     )
     labels = ModelChoiceFilter(
-        label=_('Labels'),
+        label=_('Label'),
         queryset=Label.objects.all(),
         label_suffix=""
     )
