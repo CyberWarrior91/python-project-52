@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.edit import DeleteView
 from django.contrib import messages
-from task_manager.mixins.login_mixin import UserLoginMixin
+from task_manager.mixins.mixins import UserLoginMixin
 from django.views import View
 
 

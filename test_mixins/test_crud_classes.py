@@ -10,8 +10,8 @@ class ObjectCRUDCase():
     template_name = None
 
     def test_create_object(self):
-        label = self.model.objects.create(name='test name')
-        label.save()
+        object = self.model.objects.create(name='test name')
+        object.save()
         self.assertTrue(self.model.objects.filter(name='test name').exists())
 
     def test_change_object(self):

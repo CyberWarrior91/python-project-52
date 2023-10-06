@@ -1,15 +1,15 @@
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from .models import Label
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView, UpdateView
+from django.contrib.messages.views import SuccessMessageMixin
 from .forms import LabelCreateForm
 from django.utils.translation import gettext_lazy as _
 from task_manager.mixins.object_crud_mixins import (
-    ObjectCreateView,
-    ObjectUpdateView,
     ObjectDeleteView
 )
 from django.contrib import messages
-from task_manager.mixins.login_mixin import UserLoginMixin
+from task_manager.mixins.mixins import UserLoginMixin
 from task_manager.tasks.models import Task
 # Create your views here.
 
@@ -20,18 +20,19 @@ class LabelList(UserLoginMixin, ListView):
     context_object_name = 'labels'
 
 
-class LabelCreateView(ObjectCreateView):
-    success_url = '/labels/'
-    form = LabelCreateForm
+class LabelCreateView(UserLoginMixin, SuccessMessageMixin, CreateView):
+    model = Label
+    success_url = reverse_lazy('label_index')
+    form_class = LabelCreateForm
     template_name = 'labels/label_create.html'
     success_message = _('The label was created successfully')
 
 
-class LabelUpdateView(ObjectUpdateView):
-    success_url = '/labels/'
+class LabelUpdateView(UserLoginMixin, SuccessMessageMixin, UpdateView):
+    success_url = reverse_lazy('label_index')
     model = Label
-    form = LabelCreateForm
-    update_url = 'labels/label_update.html'
+    form_class = LabelCreateForm
+    template_name = 'labels/label_update.html'
     success_message = _('The label has been updated successfully')
 
 

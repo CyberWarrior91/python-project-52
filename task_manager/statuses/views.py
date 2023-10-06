@@ -1,13 +1,13 @@
+from django.urls import reverse_lazy
 from .models import Status
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView, UpdateView
 from .forms import StatusCreateForm
 from django.utils.translation import gettext_lazy as _
 from task_manager.mixins.object_crud_mixins import (
-    ObjectCreateView,
-    ObjectUpdateView,
     ObjectDeleteView
 )
-from task_manager.mixins.login_mixin import UserLoginMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from task_manager.mixins.mixins import UserLoginMixin
 # Create your views here.
 
 
@@ -17,18 +17,19 @@ class StatusList(UserLoginMixin, ListView):
     context_object_name = 'statuses'
 
 
-class StatusCreateView(ObjectCreateView):
-    success_url = '/statuses/'
-    form = StatusCreateForm
+class StatusCreateView(UserLoginMixin, SuccessMessageMixin, CreateView):
+    model = Status
+    success_url = reverse_lazy('status_index')
+    form_class = StatusCreateForm
     template_name = 'statuses/status_create.html'
     success_message = _('The status was created successfully')
 
 
-class StatusUpdateView(ObjectUpdateView):
-    success_url = '/statuses/'
+class StatusUpdateView(UserLoginMixin, SuccessMessageMixin, UpdateView):
+    success_url = reverse_lazy('status_index')
     model = Status
-    form = StatusCreateForm
-    update_url = 'statuses/status_update.html'
+    form_class = StatusCreateForm
+    template_name = 'statuses/status_update.html'
     success_message = _('The status has been updated successfully')
 
 

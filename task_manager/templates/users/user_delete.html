@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="container max-width">
-    <p class="text-center">{% trans "Are you sure you want to delete" %} {{ object }}?</p>
+    <p class="text-center">{% trans "Are you sure you want to delete" %} {{ user }}?</p>
     <form method="post">
     {% csrf_token %}
     {{ form|crispy }}

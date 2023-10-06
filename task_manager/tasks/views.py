@@ -2,15 +2,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
 from .models import Task
 from django.views import View
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 from .forms import TaskCreateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from task_manager.mixins.object_crud_mixins import (
-    ObjectUpdateView,
     ObjectDeleteView
 )
-from task_manager.mixins.login_mixin import UserLoginMixin
+from django.contrib.messages.views import SuccessMessageMixin
+from task_manager.mixins.mixins import UserLoginMixin
 from .filters import TaskFilter
 from django_filters.views import FilterView
 
@@ -41,11 +41,11 @@ class TaskCreateView(UserLoginMixin, CreateView):
         return reverse_lazy('task_index')
 
 
-class TaskUpdateView(ObjectUpdateView):
-    success_url = '/tasks/'
+class TaskUpdateView(UserLoginMixin, SuccessMessageMixin, UpdateView):
+    success_url = reverse_lazy('task_index')
     model = Task
-    form = TaskCreateForm
-    update_url = 'tasks/task_update.html'
+    form_class = TaskCreateForm
+    template_name = 'tasks/task_update.html'
     success_message = _('The task has been updated successfully')
 
 
