@@ -6,8 +6,8 @@ from django.utils.translation import activate
 from django.urls import reverse_lazy
 from task_manager.tasks.models import Task
 from task_manager.statuses.models import Status
-from test_mixins.test_crud_classes import ObjectCRUDCase
-from test_mixins.test_form_classes import ObjectFormTest
+from test_mixins.mixin_for_crud_tests import ObjectCRUDCase
+from test_mixins.mixin_for_form_test import ObjectFormTest
 from .forms import NewUserForm, UserUpdateForm
 # Create your tests here.
 
