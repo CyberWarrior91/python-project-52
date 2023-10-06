@@ -4,6 +4,8 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views.generic import DeleteView
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 class UserLoginMixin(LoginRequiredMixin):
@@ -56,3 +58,22 @@ class ObjectIsUsed:
             extra_tags='danger'
         )
         return redirect(self.success_url)
+
+
+class DeleteUsedObject(UserLoginMixin, ObjectIsUsed, SuccessMessageMixin, DeleteView):
+    template_name = None
+    success_url = None
+    model = None
+    failed_to_delete_msg = None
+    success_message = None
+
+    def post(self, request, *args, **kwargs):
+        object_id = kwargs.get('pk')
+        object = get_object_or_404(self.model, pk=object_id)
+        object_tasks = object.task_set.all()
+        if object_tasks:
+            return self.unable_to_delete()
+        else:
+            object.delete()
+            messages.success(request, self.success_message)
+            return redirect(self.success_url)

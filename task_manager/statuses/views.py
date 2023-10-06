@@ -1,13 +1,12 @@
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from .models import Status
-from django.views.generic import ListView, CreateView, UpdateView
 from .forms import StatusCreateForm
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.utils.translation import gettext_lazy as _
-from task_manager.mixins.object_crud_mixins import (
-    ObjectDeleteView
-)
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
-from task_manager.mixins.mixins import UserLoginMixin
+from task_manager.mixins.mixins import UserLoginMixin, ObjectIsUsed
 # Create your views here.
 
 
@@ -33,9 +32,20 @@ class StatusUpdateView(UserLoginMixin, SuccessMessageMixin, UpdateView):
     success_message = _('The status has been updated successfully')
 
 
-class StatusDeleteView(ObjectDeleteView):
+class StatusDeleteView(UserLoginMixin, ObjectIsUsed, SuccessMessageMixin, DeleteView):
     template_name = 'statuses/status_delete.html'
-    success_url = '/statuses/'
+    success_url = reverse_lazy('status_index')
     model = Status
-    error_message = _("Cannot delete the status, because it's being used")
+    failed_to_delete_msg = _("Cannot delete the status, because it's being used")
     success_message = _('The status has been deleted successfully')
+
+    def post(self, request, *args, **kwargs):
+        object_id = kwargs.get('pk')
+        object = get_object_or_404(self.model, pk=object_id)
+        object_tasks = object.task_set.all()
+        if object_tasks:
+            return self.unable_to_delete()
+        else:
+            object.delete()
+            messages.success(request, self.success_message)
+            return redirect(self.success_url)

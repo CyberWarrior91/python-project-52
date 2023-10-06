@@ -1,19 +1,15 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from .models import Task
 from django.views import View
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, DeleteView
 from .forms import TaskCreateForm
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from task_manager.mixins.object_crud_mixins import (
-    ObjectDeleteView
-)
 from django.contrib.messages.views import SuccessMessageMixin
-from task_manager.mixins.mixins import UserLoginMixin
+from task_manager.mixins.mixins import UserLoginMixin, ObjectIsUsed
 from .filters import TaskFilter
 from django_filters.views import FilterView
-
 # Create your views here.
 
 
@@ -49,28 +45,21 @@ class TaskUpdateView(UserLoginMixin, SuccessMessageMixin, UpdateView):
     success_message = _('The task has been updated successfully')
 
 
-class TaskDeleteView(ObjectDeleteView):
+class TaskDeleteView(UserLoginMixin, ObjectIsUsed, SuccessMessageMixin, DeleteView):
     template_name = 'tasks/task_delete.html'
-    success_url = '/tasks/'
+    success_url = reverse_lazy('task_index')
     model = Task
     success_message = _('The task has been deleted successfully')
-    error_message = _("Only the author of the task can delete it")
+    failed_to_delete_msg = _("Only the author of the task can delete it")
 
     def get(self, request, *args, **kwargs):
         task_id = kwargs.get('pk')
         self.object = get_object_or_404(self.model, pk=task_id)
         current_user = request.user
         if current_user != self.object.author:
-            messages.error(self.request, self.error_message, extra_tags='danger')
-            return redirect(self.success_url)
+            return self.unable_to_delete()
         else:
             return render(request, self.template_name, context={'object': self.object})
-
-    def post(self, request, *args, **kwargs):
-        task_id = kwargs.get('pk')
-        form = self.get_form()
-        self.object = get_object_or_404(self.model, pk=task_id)
-        return self.form_valid(form)
 
 
 class SingleTaskView(UserLoginMixin, View):
